@@ -18,7 +18,7 @@
 
 本项目仅供 **个人学习、研究与非商业演示** 使用。严禁商业使用、转售、付费分发或用于商业服务。
 
-本项目的 UI 元素、视觉 token 与部分素材来自或参考自 guokaigdg 的 [animal-island-ui](https://github.com/guokaigdg/animal-island-ui)，以及 [CREDITS.txt](./CREDITS.txt) 与 [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md) 中列明的其他来源；这些 UI 元素不是 Nintendo 提供的素材。
+本项目的 UI 元素、视觉 token 与部分素材来自或参考自 guokaigdg 的 [animal-island-ui](https://github.com/guokaigdg/animal-island-ui)，以及 [CREDITS.txt](./CREDITS.txt) 与 [docs/ASSETS_AND_CREDITS.zh-CN.md](./docs/ASSETS_AND_CREDITS.zh-CN.md) 中列明的其他来源；这些 UI 元素不是 Nintendo 提供的素材。
 
 本项目 **不是** Nintendo 官方产品，**未获得** Nintendo 背书，也 **与 Nintendo 无任何关联**。使用者需自行承担使用后果。详见 [LEGAL_NOTICE.md](./LEGAL_NOTICE.md) 和 [LICENSE](./LICENSE)。
 
@@ -146,7 +146,7 @@ links:
     url: ""
 ```
 
-完整示例见 [examples/_config.animal-island.yml](./examples/_config.animal-island.yml)，详细字段说明见 [docs/CONFIGURATION.md](./docs/CONFIGURATION.md)。
+完整示例见 [examples/_config.animal-island.yml](./examples/_config.animal-island.yml)，详细字段说明见 [docs/CONFIGURATION.zh-CN.md](./docs/CONFIGURATION.zh-CN.md)。
 
 ## 📚 文章目录
 
@@ -208,14 +208,14 @@ hexo clean && hexo generate
 
 ## 🧾 文档目录
 
-- 📦 [安装手册](./docs/INSTALLATION.md)
-- ⚙️ [配置手册](./docs/CONFIGURATION.md)
-- 🎨 [定制手册](./docs/CUSTOMIZATION.md)
-- 🧰 [开发手册](./docs/DEVELOPMENT.md)
-- 🏗️ [项目结构](./docs/STRUCTURE.md)
-- 🗒️ [项目使用手册](./docs/PROJECT_MANUAL.md)
-- 🩹 [故障排查](./docs/TROUBLESHOOTING.md)
-- 🙏 [素材与鸣谢](./docs/ASSETS_AND_CREDITS.md)
+- 📦 [安装手册](./docs/INSTALLATION.zh-CN.md)
+- ⚙️ [配置手册](./docs/CONFIGURATION.zh-CN.md)
+- 🎨 [定制手册](./docs/CUSTOMIZATION.zh-CN.md)
+- 🧰 [开发手册](./docs/DEVELOPMENT.zh-CN.md)
+- 🏗️ [项目结构](./docs/STRUCTURE.zh-CN.md)
+- 🗒️ [项目使用手册](./docs/PROJECT_MANUAL.zh-CN.md)
+- 🩹 [故障排查](./docs/TROUBLESHOOTING.zh-CN.md)
+- 🙏 [素材与鸣谢](./docs/ASSETS_AND_CREDITS.zh-CN.md)
 - ⚠️ [法律声明与使用限制](./LEGAL_NOTICE.md)
 
 ## 🚢 GitHub 发布检查清单
@@ -232,4 +232,4 @@ hexo clean && hexo generate
 
 本项目源码公开但仅限个人学习与非商业使用，严禁商业使用。详见 [LICENSE](./LICENSE) 与 [LEGAL_NOTICE.md](./LEGAL_NOTICE.md)。
 
-第三方 UI 元素、参考项目与素材鸣谢见 [CREDITS.txt](./CREDITS.txt) 和 [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md)；复制、修改或公开分享本主题时，请保留这些声明。
+第三方 UI 元素、参考项目与素材鸣谢见 [CREDITS.txt](./CREDITS.txt) 和 [docs/ASSETS_AND_CREDITS.zh-CN.md](./docs/ASSETS_AND_CREDITS.zh-CN.md)；复制、修改或公开分享本主题时，请保留这些声明。

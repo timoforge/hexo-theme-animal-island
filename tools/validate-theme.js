@@ -48,13 +48,21 @@ const requiredFiles = [
   "source/js/animal-island.js",
   "examples/_config.animal-island.yml",
   "docs/INSTALLATION.md",
+  "docs/INSTALLATION.zh-CN.md",
   "docs/CONFIGURATION.md",
+  "docs/CONFIGURATION.zh-CN.md",
   "docs/CUSTOMIZATION.md",
+  "docs/CUSTOMIZATION.zh-CN.md",
   "docs/DEVELOPMENT.md",
+  "docs/DEVELOPMENT.zh-CN.md",
   "docs/STRUCTURE.md",
+  "docs/STRUCTURE.zh-CN.md",
   "docs/PROJECT_MANUAL.md",
+  "docs/PROJECT_MANUAL.zh-CN.md",
   "docs/TROUBLESHOOTING.md",
+  "docs/TROUBLESHOOTING.zh-CN.md",
   "docs/ASSETS_AND_CREDITS.md",
+  "docs/ASSETS_AND_CREDITS.zh-CN.md",
 ];
 
 for (const file of requiredFiles) {
