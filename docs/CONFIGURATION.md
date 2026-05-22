@@ -236,7 +236,7 @@ footer:
 
 links:
   - name: GitHub
-    url: https://github.com/
+    url: https://github.com/timoforge/hexo-theme-animal-island
   - name: RSS
     url: /atom.xml
 ```
