@@ -33,12 +33,12 @@ Animal Island 是一套源码公开的 Hexo 主题，仅供个人学习与非商
 
 ## 快速开始
 
-把主题克隆到 Hexo 站点的 `themes/` 目录（发布后按需把 `your-username` 替换成实际 GitHub 账号或组织名）：
+把主题克隆到 Hexo 站点的 `themes/` 目录：
 
 ```bash
 cd /path/to/your-hexo-site
 mkdir -p themes
-git clone https://github.com/your-username/hexo-theme-animal-island.git themes/animal-island
+git clone https://github.com/timoforge/hexo-theme-animal-island.git themes/animal-island
 ```
 
 然后修改 Hexo 站点根目录 `_config.yml`：

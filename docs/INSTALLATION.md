@@ -9,10 +9,8 @@
 ```bash
 cd /path/to/your-hexo-site
 mkdir -p themes
-git clone https://github.com/your-username/hexo-theme-animal-island.git themes/animal-island
+git clone https://github.com/timoforge/hexo-theme-animal-island.git themes/animal-island
 ```
-
-> 发布到 GitHub 后，请把示例中的 `your-username` 改成实际账号或组织名。
 
 然后修改站点根目录 `_config.yml`：
 

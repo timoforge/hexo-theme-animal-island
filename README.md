@@ -33,12 +33,12 @@ Animal Island is a source-available Hexo theme for personal learning and non-com
 
 ## Quick Start
 
-Clone this repository into the `themes/` directory of your Hexo site (replace `your-username` with the final GitHub owner if needed):
+Clone this repository into the `themes/` directory of your Hexo site:
 
 ```bash
 cd /path/to/your-hexo-site
 mkdir -p themes
-git clone https://github.com/your-username/hexo-theme-animal-island.git themes/animal-island
+git clone https://github.com/timoforge/hexo-theme-animal-island.git themes/animal-island
 ```
 
 Then enable the theme in the Hexo site root `_config.yml`:
