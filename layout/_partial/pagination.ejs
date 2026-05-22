@@ -1,0 +1,12 @@
+<% const labels = theme.labels || {}; %>
+<% if (page.total && page.total > 1) { %>
+  <nav class="ai-pagination" aria-label="<%- labels.pagination_aria || '分页' %>">
+    <% if (page.prev) { %>
+      <a class="ai-btn" href="<%- url_for(page.prev_link) %>"><%- labels.pagination_prev || '上一页' %></a>
+    <% } %>
+    <span class="ai-page-number"><%= page.current %> / <%= page.total %></span>
+    <% if (page.next) { %>
+      <a class="ai-btn" href="<%- url_for(page.next_link) %>"><%- labels.pagination_next || '下一页' %></a>
+    <% } %>
+  </nav>
+<% } %>

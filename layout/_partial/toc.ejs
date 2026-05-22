@@ -1,0 +1,100 @@
+<%
+const tocConfig = theme.toc || {};
+const labels = theme.labels || {};
+const pageTocConfig = page && page.toc && typeof page.toc === 'object' && !Array.isArray(page.toc)
+  ? page.toc
+  : {};
+
+function tocOption(name, fallback) {
+  if (Object.prototype.hasOwnProperty.call(pageTocConfig, name)) return pageTocConfig[name];
+  if (Object.prototype.hasOwnProperty.call(tocConfig, name)) return tocConfig[name];
+  return fallback;
+}
+
+function clampDepth(value, fallback) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return fallback;
+  return Math.max(1, Math.min(6, Math.round(number)));
+}
+
+function escapeHtml(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function decodeEntities(value) {
+  return String(value || '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+function stripTags(value) {
+  return decodeEntities(value)
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function headingId(attrs) {
+  const quoted = String(attrs || '').match(/\sid\s*=\s*("([^"]*)"|'([^']*)')/i);
+  if (quoted) return quoted[2] || quoted[3] || '';
+  const bare = String(attrs || '').match(/\sid\s*=\s*([^\s>]+)/i);
+  return bare ? bare[1] : '';
+}
+
+const minDepth = clampDepth(tocOption('min_depth', 2), 2);
+const maxDepth = Math.max(minDepth, clampDepth(tocOption('max_depth', 4), 4));
+const maxItems = Math.max(0, Number(tocOption('max_items', 32)) || 0);
+const headingPattern = /<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>/gi;
+const headings = [];
+const content = page && page.content ? String(page.content) : '';
+let match;
+
+while ((match = headingPattern.exec(content))) {
+  const level = Number(match[1]);
+  if (level < minDepth || level > maxDepth) continue;
+
+  const id = headingId(match[2]);
+  const text = stripTags(match[3]);
+  if (!id || !text) continue;
+
+  headings.push({
+    depth: Math.max(0, level - minDepth),
+    href: escapeHtml(`#${id}`),
+    level,
+    text: escapeHtml(text)
+  });
+
+  if (maxItems && headings.length >= maxItems) break;
+}
+
+const tocLabel = tocOption('label', labels.toc_label || 'Contents');
+const tocTitle = page && page.toc_title
+  ? page.toc_title
+  : tocOption('title', labels.toc_title || '文章大纲');
+const tocEmptyText = tocOption('empty_text', labels.toc_empty || '这篇文章暂时没有可用的大纲');
+const tocAria = tocOption('aria_label', labels.toc_aria || tocTitle);
+%>
+<nav class="ai-toc" aria-label="<%- escapeHtml(tocAria) %>" data-ai-toc>
+  <span class="ai-toc__label"><%- escapeHtml(tocLabel) %></span>
+  <strong class="ai-toc__title"><%- escapeHtml(tocTitle) %></strong>
+  <% if (headings.length) { %>
+    <ol class="ai-toc__list">
+      <% headings.forEach(function(item) { %>
+        <li class="ai-toc__item ai-toc__item--level-<%- item.level %>" style="--ai-toc-depth: <%- item.depth %>">
+          <a class="ai-toc__link" href="<%- item.href %>" data-ai-toc-link><%- item.text %></a>
+        </li>
+      <% }); %>
+    </ol>
+  <% } else { %>
+    <p class="ai-toc__empty"><%- escapeHtml(tocEmptyText) %></p>
+  <% } %>
+</nav>

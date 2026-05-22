@@ -1,0 +1,21 @@
+<% const assets = theme.assets || {}; const hero = theme.hero || {}; %>
+<section class="ai-hero">
+  <img class="ai-hero__icon" src="<%- url_for(hero.icon || assets.favicon || '/images/island-assets/favicon.svg') %>" alt="">
+  <p class="ai-hero__greeting"><%- hero.greeting || 'Hey there' %></p>
+  <h1><%- hero.title || config.title %></h1>
+  <p class="ai-hero__subtitle"><%- hero.subtitle || config.subtitle || config.description %></p>
+  <a class="ai-btn ai-btn--primary" href="<%- url_for(hero.cta_url || '/archives/') %>"><%- hero.cta_text || '开始阅读' %></a>
+</section>
+
+<section class="ai-section">
+  <div class="ai-section-title">
+    <span><%- hero.recent_title || 'Recent Notes' %></span>
+    <img src="<%- url_for(assets.divider || '/images/island-assets/divider_line.png') %>" alt="">
+  </div>
+  <div class="ai-post-grid">
+    <% page.posts.each(function(post) { %>
+      <%- partial('_partial/post-card', { post: post }) %>
+    <% }); %>
+  </div>
+  <%- partial('_partial/pagination') %>
+</section>

@@ -1,0 +1,70 @@
+<%
+const currentPath = page.path || '';
+const profile = theme.profile || {};
+const hero = theme.hero || {};
+const labels = theme.labels || {};
+function normalizePath(path) {
+  return String(path || '').replace(/^\/+/, '').replace(/index\.html$/, '');
+}
+const normalizedCurrentPath = normalizePath(currentPath);
+%>
+
+<header class="ai-mobile-header">
+
+  <button class="ai-drawer-toggle" type="button" aria-label="<%- labels.drawer_open || '打开菜单' %>" data-drawer-toggle>
+    <span></span><span></span><span></span>
+  </button>
+  <a class="ai-mobile-title" href="<%- url_for('/') %>"><%- config.title %></a>
+  <a class="ai-mobile-search-link" href="<%- url_for('/search/') %>" aria-label="<%- labels.search_aria || '站内搜索' %>">⌕</a>
+  <div class="ai-theme-segment ai-theme-segment--mobile" role="group" aria-label="<%- labels.theme_aria || '底色主题切换' %>">
+    <button class="ai-theme-choice" type="button" data-theme-choice="day" aria-pressed="true">
+      <span class="ai-theme-dot ai-theme-dot--day"></span>
+      <span><%- labels.theme_day_short || '日' %></span>
+    </button>
+    <button class="ai-theme-choice" type="button" data-theme-choice="night" aria-pressed="false">
+      <span class="ai-theme-dot ai-theme-dot--night"></span>
+      <span><%- labels.theme_night_short || '夜' %></span>
+    </button>
+  </div>
+</header>
+
+<aside class="ai-sidebar" data-sidebar>
+  <div class="ai-profile">
+    <a href="<%- url_for('/') %>" class="ai-avatar-wrap" aria-label="<%- labels.home_aria || '返回首页' %>">
+      <img class="ai-avatar" src="<%- url_for(profile.avatar || '/images/island-assets/profile.jpg') %>" alt="<%- profile.name || config.author || config.title %>">
+    </a>
+    <div class="ai-profile-card">
+      <p class="ai-island-label"><%- labels.profile_label || 'Island Representative' %></p>
+      <h2><%- profile.name || config.author || config.title %></h2>
+      <p><%- profile.intro || config.description || hero.subtitle || config.title %></p>
+    </div>
+  </div>
+
+  <nav class="ai-menu" aria-label="<%- labels.nav_aria || '主导航' %>">
+    <% const menu = theme.menu || {}; %>
+    <% Object.keys(menu).forEach(function(key) { const item = menu[key]; const itemPath = normalizePath(item.url); const active = normalizedCurrentPath === itemPath || (item.url === '/' && normalizedCurrentPath === ''); %>
+      <a class="ai-menu-item <%= active ? 'is-active' : '' %>" href="<%- url_for(item.url) %>">
+        <% if (item.icon) { %><img src="<%- url_for(item.icon) %>" alt=""><% } %>
+        <span><%- item.text %></span>
+      </a>
+    <% }); %>
+  </nav>
+
+  <div class="ai-sidebar-bottom">
+    <div class="ai-theme-panel">
+      <p class="ai-theme-title"><%- labels.theme_title || '底色主题' %></p>
+      <div class="ai-theme-segment" role="group" aria-label="<%- labels.theme_aria || '底色主题切换' %>">
+        <button class="ai-theme-choice" type="button" data-theme-choice="day" aria-pressed="true">
+          <span class="ai-theme-dot ai-theme-dot--day"></span>
+          <span><%- labels.theme_day || '浅色' %></span>
+        </button>
+        <button class="ai-theme-choice" type="button" data-theme-choice="night" aria-pressed="false">
+          <span class="ai-theme-dot ai-theme-dot--night"></span>
+          <span><%- labels.theme_night || '夜色' %></span>
+        </button>
+      </div>
+    </div>
+    <p class="ai-status"><%- profile.status || config.description || '今天也在岛上写作、记录和探索。' %></p>
+  </div>
+</aside>
+<div class="ai-drawer-mask" data-drawer-mask></div>

@@ -1,0 +1,35 @@
+{
+  "name": "hexo-theme-animal-island",
+  "version": "0.1.0",
+  "description": "A cozy island-style Hexo theme for personal learning and non-commercial use.",
+  "keywords": [
+    "hexo",
+    "hexo-theme",
+    "blog",
+    "animal-island",
+    "day-night-theme"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "scripts": {
+    "validate": "node tools/validate-theme.js"
+  },
+  "files": [
+    "_config.yml",
+    "layout",
+    "source",
+    "docs",
+    "examples",
+    "tools",
+    "README.md",
+    "README.zh-CN.md",
+    "LEGAL_NOTICE.md",
+    "CREDITS.txt",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "hexo": ">=6"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

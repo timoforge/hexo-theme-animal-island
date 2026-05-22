@@ -1,0 +1,100 @@
+<%
+const assets = theme.assets || {};
+const profile = theme.profile || {};
+const sideBoard = theme.side_board || {};
+const labels = theme.labels || {};
+const toc = theme.toc || {};
+const currentPage = page || {};
+const pageTocValue = currentPage.toc;
+const tocEnabled = pageTocValue === undefined || pageTocValue === null
+  ? toc.enable !== false
+  : pageTocValue !== false;
+const currentPageType = currentPage.type || '';
+const currentPagePath = currentPage.path || '';
+const isSearchPage = currentPageType === 'search' || currentPagePath === 'search/index.html' || currentPagePath === 'search/';
+const showToc = (typeof is_post === 'function' ? is_post() : currentPage.layout === 'post') && tocEnabled;
+const sideIcons = Array.isArray(sideBoard.icons) && sideBoard.icons.length
+  ? sideBoard.icons
+  : [
+      '/images/island-assets/side-guide.svg',
+      '/images/island-assets/side-map.svg',
+      '/images/island-assets/side-design.svg',
+      '/images/island-assets/side-craft.svg',
+      '/images/island-assets/side-shop.svg',
+      '/images/island-assets/side-camera.svg',
+      '/images/island-assets/side-badge.svg',
+      '/images/island-assets/side-chat.svg',
+      '/images/island-assets/side-helicopter.svg'
+    ];
+%>
+<!doctype html>
+<html lang="<%- config.language || 'zh-CN' %>" data-theme="day">
+<%- partial('_partial/head') %>
+<body>
+  <div class="ai-page-shell">
+    <%- partial('_partial/header') %>
+    <main class="ai-main">
+      <div class="ai-top-banner" aria-hidden="true">
+        <img class="ai-banner-img ai-banner-img--day" src="<%- url_for(assets.header_banner_day || '/images/island-assets/header_banner_light.png') %>" alt="">
+        <img class="ai-banner-img ai-banner-img--night" src="<%- url_for(assets.header_banner_night || '/images/island-assets/header_banner_dark.png') %>" alt="">
+      </div>
+      <div class="ai-content-wrap<%= showToc ? ' ai-content-wrap--has-toc' : '' %>">
+        <section class="ai-island-board<%= showToc ? ' ai-island-board--has-toc' : '' %><%= isSearchPage ? ' ai-island-board--search-page' : '' %>">
+          <div class="ai-island-board__content">
+            <%- body %>
+          </div>
+          <aside class="ai-island-board__aside<%= showToc ? ' ai-island-board__aside--toc' : '' %><%= isSearchPage ? ' ai-island-board__aside--search' : '' %>">
+            <% if (showToc) { %>
+              <%- partial('_partial/toc') %>
+            <% } else if (isSearchPage) { %>
+              <div class="ai-search-side-hero" aria-label="搜索页装饰">
+                <span class="ai-search-side-hero__label">ISLAND GUIDE</span>
+                <strong>慢慢找，总会找到</strong>
+                <p>用左侧的大搜索框输入关键词，标题、正文、分类和标签都会一起匹配。</p>
+                <img src="<%- url_for('/images/island-assets/island-icon.png') %>" alt="" loading="lazy">
+              </div>
+              <div class="ai-search-side-tip" data-ai-search-side-tip data-state="idle" aria-live="polite">
+                <span class="ai-search-side-tip__label" data-ai-search-side-tip-label>小提示</span>
+                <p data-ai-search-side-tip-message>试试输入 <strong>AI Token</strong>、<strong>大模型</strong> 或 <strong>Hexo</strong>。</p>
+                <div class="ai-search-side-tip__chips" aria-label="推荐关键词">
+                  <button type="button" data-ai-search-suggestion="AI Token">AI Token</button>
+                  <button type="button" data-ai-search-suggestion="大模型">大模型</button>
+                  <button type="button" data-ai-search-suggestion="Hexo">Hexo</button>
+                </div>
+                <div class="ai-search-side-tip__meter" aria-hidden="true">
+                  <i data-ai-search-side-tip-meter></i>
+                </div>
+              </div>
+            <% } else { %>
+              <form class="ai-board-search" action="<%- url_for('/search/') %>" method="get" role="search">
+                <label class="ai-board-search__label" for="ai-board-search-input"><%- labels.search_aria || '站内搜索' %></label>
+                <div class="ai-board-search__control">
+                  <span class="ai-board-search__icon" aria-hidden="true">⌕</span>
+                  <input id="ai-board-search-input" name="q" type="search" placeholder="<%- labels.search_placeholder || '输入标题、正文、分类或标签' %>" autocomplete="off">
+                  <button type="submit" aria-label="<%- labels.search_submit || '搜索' %>"><span><%- labels.search_submit || '搜索' %></span></button>
+                </div>
+              </form>
+              <div class="ai-side-card ai-side-card--notice">
+                <span><%- sideBoard.label || 'Island Board' %></span>
+                <strong><%- sideBoard.title || config.title %></strong>
+                <p><%- sideBoard.description || profile.status || config.description || '今天也在岛上写作、记录和探索。' %></p>
+              </div>
+              <div class="ai-side-decor-grid" aria-hidden="true">
+                <% sideIcons.forEach(function(icon) { %>
+                  <img src="<%- url_for(icon) %>" alt="" loading="lazy">
+                <% }); %>
+              </div>
+              <div class="ai-side-bubble"><%- sideBoard.bubble || '写作 · 归档 · 小岛日常' %></div>
+            <% } %>
+          </aside>
+        </section>
+      </div>
+      <div class="ai-bottom-banner" aria-hidden="true">
+        <img class="ai-banner-img ai-banner-img--day" src="<%- url_for(assets.footer_banner_day || '/images/island-assets/banner_light.png') %>" alt="">
+        <img class="ai-banner-img ai-banner-img--night" src="<%- url_for(assets.footer_banner_night || '/images/island-assets/banner_dark.png') %>" alt="">
+      </div>
+      <%- partial('_partial/footer') %>
+    </main>
+  </div>
+</body>
+</html>

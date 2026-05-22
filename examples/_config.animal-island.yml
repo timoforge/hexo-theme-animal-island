@@ -1,0 +1,116 @@
+# Animal Island theme override example
+# Copy this file to your Hexo site root as _config.animal-island.yml.
+
+profile:
+  avatar: /images/island-assets/profile.jpg
+  name: "Islander"
+  intro: "欢迎来到我的小岛博客。"
+  status: "今天也在岛上写作、记录和探索。"
+
+assets:
+  favicon: /images/island-assets/favicon.svg
+  divider: /images/island-assets/divider_line.png
+  not_found_icon: /images/island-assets/not-found.png
+  header_banner_day: /images/island-assets/header_banner_light.png
+  header_banner_night: /images/island-assets/header_banner_dark.png
+  footer_banner_day: /images/island-assets/banner_light.png
+  footer_banner_night: /images/island-assets/banner_dark.png
+  side_leaf_day: /images/island-assets/leaf_light.png
+  side_leaf_night: /images/island-assets/leaf_dark.png
+
+hero:
+  icon: /images/island-assets/favicon.svg
+  greeting: "Hey there"
+  title: "欢迎来到我的小岛"
+  subtitle: "一座小岛风格的 Hexo 博客，记录技术、生活与思考。"
+  recent_title: "Recent Notes"
+  cta_text: "开始逛岛"
+  cta_url: /archives/
+
+side_board:
+  label: "Island Board"
+  title: ""
+  description: ""
+  bubble: "写作 · 归档 · 小岛日常"
+  icons:
+    - /images/island-assets/board-note.png
+    - /images/island-assets/photos.png
+    - /images/island-assets/drawing.png
+
+toc:
+  enable: true
+  min_depth: 2
+  max_depth: 4
+  max_items: 32
+
+menu:
+  home:
+    text: 首页
+    url: /
+    icon: /images/island-assets/nav-home.png
+  search:
+    text: 搜索
+    url: /search/
+    icon: /images/island-assets/brush.png
+  archives:
+    text: 归档
+    url: /archives/
+    icon: /images/island-assets/photos.png
+  categories:
+    text: 分类
+    url: /categories/
+    icon: /images/island-assets/nav-categories.png
+  tags:
+    text: 标签
+    url: /tags/
+    icon: /images/island-assets/drawing.png
+  about:
+    text: 关于
+    url: /about/
+    icon: /images/island-assets/messages.png
+
+labels:
+  profile_label: "Island Representative"
+  drawer_open: "打开菜单"
+  home_aria: "返回首页"
+  nav_aria: "主导航"
+  toc_label: "Contents"
+  toc_title: "文章大纲"
+  toc_aria: "文章大纲"
+  toc_empty: "这篇文章暂时没有可用的大纲"
+  theme_title: "底色主题"
+  theme_aria: "底色主题切换"
+  theme_day: "浅色"
+  theme_night: "夜色"
+  theme_day_short: "日"
+  theme_night_short: "夜"
+  archive_label: "Island Archive"
+  archive_title: "文章归档"
+  list_title: "文章列表"
+  page_label: "Island Page"
+  search_label: "Island Search"
+  search_aria: "站内搜索"
+  search_help: "支持搜索文章标题、正文、分类和标签，多个关键词会同时匹配。"
+  search_input_label: "搜索关键词"
+  search_placeholder: "输入标题、正文、分类或标签"
+  search_submit: "搜索"
+  search_initial: "输入关键词后会在这里显示匹配的文章。"
+  search_no_results: "没有找到匹配的文章，换个关键词试试。"
+  search_no_script: "搜索功能需要启用浏览器 JavaScript。"
+  untitled_post: "未命名文章"
+  pagination_aria: "分页"
+  pagination_prev: "上一页"
+  pagination_next: "下一页"
+  not_found_code: "404"
+  not_found_title: "岛上好像没有这个地方"
+  not_found_subtitle: "也许路径写错了，或者这篇文章还在建设中。"
+  not_found_back_home: "返回首页"
+
+footer:
+  text: "Made with Hexo on Animal Island."
+
+links:
+  - name: GitHub
+    url: https://github.com/
+  - name: RSS
+    url: /atom.xml

@@ -1,0 +1,13 @@
+<% const footer = theme.footer || {}; %>
+<footer class="ai-footer">
+  <div class="ai-footer-sea" aria-hidden="true"></div>
+  <p>&copy; <%= new Date().getFullYear() %> <%- config.author || config.title %>. <%- footer.text || 'Made with Hexo on Animal Island.' %></p>
+  <% if (theme.links && theme.links.length) { %>
+    <div class="ai-footer-links">
+      <% theme.links.forEach(function(link) { %>
+        <a href="<%- link.url %>" target="<%= /^https?:/.test(link.url) ? '_blank' : '_self' %>" rel="noopener"><%- link.name %></a>
+      <% }); %>
+    </div>
+  <% } %>
+</footer>
+<%- js('js/animal-island') %>

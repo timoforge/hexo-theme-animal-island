@@ -1,0 +1,23 @@
+<% const labels = theme.labels || {}; %>
+<article class="ai-post-card">
+  <a class="ai-post-card__link" href="<%- url_for(post.path) %>">
+    <div class="ai-post-card__meta">
+      <span><%- date(post.date, 'YYYY-MM-DD') %></span>
+      <% if (post.categories && post.categories.length) { %>
+        <span>· <%- post.categories.map ? post.categories.map(cat => cat.name).join(' / ') : '' %></span>
+      <% } %>
+    </div>
+    <h2><%- post.title || labels.untitled_post || '未命名文章' %></h2>
+    <% const excerpt = post.excerpt || post.content || ''; %>
+    <% if (excerpt) { %>
+      <div class="ai-post-card__excerpt"><%- strip_html(excerpt).substring(0, 150) %><%= strip_html(excerpt).length > 150 ? '…' : '' %></div>
+    <% } %>
+    <% if (post.tags && post.tags.length) { %>
+      <div class="ai-tags">
+        <% post.tags.forEach(function(tag) { %>
+          <span># <%- tag.name %></span>
+        <% }); %>
+      </div>
+    <% } %>
+  </a>
+</article>

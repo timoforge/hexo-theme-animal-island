@@ -1,0 +1,20 @@
+<article class="ai-article ai-paper-card">
+  <header class="ai-article-header">
+    <div class="ai-post-card__meta">
+      <span><%- date(page.date, 'YYYY-MM-DD') %></span>
+      <% if (page.categories && page.categories.length) { %>
+        <span>· <%- page.categories.map(cat => cat.name).join(' / ') %></span>
+      <% } %>
+    </div>
+    <h1><%- page.title %></h1>
+    <% if (page.tags && page.tags.length) { %>
+      <div class="ai-tags">
+        <% page.tags.forEach(function(tag) { %>
+          <a href="<%- url_for(tag.path) %>"># <%- tag.name %></a>
+        <% }); %>
+      </div>
+    <% } %>
+  </header>
+  <div class="ai-divider"></div>
+  <div class="ai-prose"><%- page.content %></div>
+</article>

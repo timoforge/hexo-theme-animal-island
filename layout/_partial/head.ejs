@@ -1,0 +1,20 @@
+<% const assets = theme.assets || {}; const hero = theme.hero || {}; %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#2abaaa">
+  <meta name="description" content="<%- config.description || hero.subtitle || config.subtitle || config.title %>">
+  <title><%- page.title ? `${page.title} | ${config.title}` : config.title %></title>
+  <script>
+    (() => {
+      try {
+        const theme = localStorage.getItem('animal-island-theme');
+        document.documentElement.setAttribute('data-theme', theme === 'night' ? 'night' : 'day');
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'day');
+      }
+    })();
+  </script>
+  <%- css('css/animal-island') %>
+  <link rel="icon" href="<%- url_for(assets.favicon || '/images/island-assets/favicon.svg') %>" type="image/svg+xml">
+</head>

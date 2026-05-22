@@ -1,0 +1,167 @@
+<%
+const labels = theme.labels || {};
+const pageType = page.type || '';
+const isCategoriesPage = pageType === 'categories';
+const isTagsPage = pageType === 'tags';
+const isSearchPage = pageType === 'search';
+
+function collectionToArray(collection) {
+  if (!collection) return [];
+  if (Array.isArray(collection)) return collection;
+  if (typeof collection.toArray === 'function') return collection.toArray();
+
+  const items = [];
+  if (typeof collection.forEach === 'function') {
+    collection.forEach(function(item) {
+      items.push(item);
+    });
+  }
+  return items;
+}
+
+function taxonomyCount(item) {
+  if (!item) return 0;
+  if (typeof item.length === 'number') return item.length;
+  if (item.posts && typeof item.posts.length === 'number') return item.posts.length;
+  if (typeof item.count === 'number') return item.count;
+  return 0;
+}
+
+function sortTaxonomies(items) {
+  return items
+    .filter(function(item) {
+      return item && item.name;
+    })
+    .sort(function(a, b) {
+      const countDiff = taxonomyCount(b) - taxonomyCount(a);
+      if (countDiff !== 0) return countDiff;
+      return String(a.name).localeCompare(String(b.name), 'zh-CN');
+    });
+}
+
+function postTaxonomies(post, key) {
+  return collectionToArray(post[key])
+    .map(function(item) {
+      return item && item.name;
+    })
+    .filter(Boolean);
+}
+
+function normalizePlainText(value) {
+  return strip_html(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function escapeJsonForHtml(value) {
+  return value
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e')
+    .replace(/&/g, '\\u0026')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029');
+}
+
+const taxonomyItems = isCategoriesPage
+  ? sortTaxonomies(collectionToArray(site.categories))
+  : isTagsPage
+    ? sortTaxonomies(collectionToArray(site.tags))
+    : [];
+const taxonomyTitle = isCategoriesPage ? '全部分类' : '全部标签';
+const taxonomyEmptyText = isCategoriesPage
+  ? '还没有可展示的分类。给文章 front matter 添加 categories 后，这里会自动出现。'
+  : '还没有可展示的标签。给文章 front matter 添加 tags 后，这里会自动出现。';
+const searchItems = isSearchPage
+  ? collectionToArray(site.posts)
+    .filter(function(post) {
+      return post && post.path;
+    })
+    .sort(function(a, b) {
+      const timeA = a.date && typeof a.date.valueOf === 'function' ? a.date.valueOf() : 0;
+      const timeB = b.date && typeof b.date.valueOf === 'function' ? b.date.valueOf() : 0;
+      return timeB - timeA;
+    })
+    .map(function(post) {
+      const text = normalizePlainText(post.content || post.excerpt || '');
+      const excerptSource = normalizePlainText(post.excerpt || post.content || '');
+      return {
+        title: post.title || labels.untitled_post || '未命名文章',
+        url: url_for(post.path),
+        date: date(post.date, 'YYYY-MM-DD'),
+        categories: postTaxonomies(post, 'categories'),
+        tags: postTaxonomies(post, 'tags'),
+        excerpt: excerptSource.substring(0, 180),
+        text: text
+      };
+    })
+  : [];
+const pageLabel = isSearchPage
+  ? (labels.search_label || 'Island Search')
+  : (labels.page_label || 'Island Page');
+%>
+<article class="ai-article ai-paper-card">
+  <header class="ai-article-header">
+    <p class="ai-island-label"><%- pageLabel %></p>
+    <h1><%- page.title %></h1>
+  </header>
+  <div class="ai-divider"></div>
+
+  <% if (isSearchPage) { %>
+    <% if (page.content) { %>
+      <div class="ai-prose ai-search-intro"><%- page.content %></div>
+    <% } %>
+    <section class="ai-search-box" data-ai-search data-empty-text="<%- labels.search_no_results || '没有找到匹配的文章，换个关键词试试。' %>" data-initial-text="<%- labels.search_initial || '输入关键词后会在这里显示匹配的文章。' %>" aria-label="<%- labels.search_aria || '站内搜索' %>">
+      <div class="ai-search-panel">
+        <div class="ai-search-panel__header">
+          <span class="ai-search-panel__icon" aria-hidden="true">⌕</span>
+          <div>
+            <strong><%- labels.search_aria || '站内搜索' %></strong>
+            <small><%- labels.search_help || '支持搜索文章标题、正文、分类和标签，多个关键词会同时匹配。' %></small>
+          </div>
+        </div>
+        <form class="ai-search-form" data-ai-search-form role="search">
+          <label class="ai-search-label" for="ai-search-input"><%- labels.search_input_label || '搜索关键词' %></label>
+          <div class="ai-search-control">
+            <span class="ai-search-control__prefix" aria-hidden="true">🔎</span>
+            <input id="ai-search-input" name="q" type="search" data-ai-search-input placeholder="<%- labels.search_placeholder || '输入标题、正文、分类或标签' %>" autocomplete="off">
+            <button type="submit"><%- labels.search_submit || '搜索' %></button>
+          </div>
+        </form>
+      </div>
+      <p class="ai-search-stats" data-ai-search-stats>共 <%= searchItems.length %> 篇可搜索文章</p>
+      <div class="ai-search-results" data-ai-search-results></div>
+      <noscript><p class="ai-search-empty"><%- labels.search_no_script || '搜索功能需要启用浏览器 JavaScript。' %></p></noscript>
+      <script id="ai-search-data" type="application/json"><%- escapeJsonForHtml(JSON.stringify(searchItems)) %></script>
+    </section>
+  <% } else if (isCategoriesPage || isTagsPage) { %>
+    <% if (page.content) { %>
+      <div class="ai-prose ai-taxonomy-intro"><%- page.content %></div>
+    <% } %>
+
+    <section class="ai-taxonomy-list ai-taxonomy-list--<%= isCategoriesPage ? 'categories' : 'tags' %>" aria-label="<%- taxonomyTitle %>">
+      <% if (taxonomyItems.length) { %>
+        <% if (isCategoriesPage) { %>
+          <div class="ai-category-grid">
+            <% taxonomyItems.forEach(function(category) { %>
+              <a class="ai-taxonomy-card" href="<%- url_for(category.path) %>">
+                <span class="ai-taxonomy-card__name"><%= category.name %></span>
+                <span class="ai-taxonomy-card__count"><%= taxonomyCount(category) %> 篇文章</span>
+              </a>
+            <% }); %>
+          </div>
+        <% } else { %>
+          <div class="ai-tag-cloud">
+            <% taxonomyItems.forEach(function(tag) { %>
+              <a class="ai-taxonomy-pill" href="<%- url_for(tag.path) %>">
+                <span># <%= tag.name %></span>
+                <em><%= taxonomyCount(tag) %></em>
+              </a>
+            <% }); %>
+          </div>
+        <% } %>
+      <% } else { %>
+        <p class="ai-taxonomy-empty"><%- taxonomyEmptyText %></p>
+      <% } %>
+    </section>
+  <% } else { %>
+    <div class="ai-prose"><%- page.content %></div>
+  <% } %>
+</article>

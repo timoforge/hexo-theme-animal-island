@@ -1,0 +1,25 @@
+Animal Island Hexo Theme Credits and Notices
+============================================
+
+This source-available Hexo theme is provided only for personal learning and non-commercial use. Commercial use, resale, paid redistribution, or use in commercial services is prohibited. See LICENSE and LEGAL_NOTICE.md.
+
+Primary UI / asset source:
+- animal-island-ui by guokaigdg
+  https://github.com/guokaigdg/animal-island-ui
+  Upstream package metadata declares MIT license and describes the project as for learning purpose only.
+  Used/adapted as the source of UI elements, visual style references, component tokens, cursor assets, wave/tree assets, and related island-style UI inspiration.
+  These UI elements are not provided by Nintendo.
+
+Additional design / asset references:
+- ac-site-template by Zhang Yunxin / yunxinz
+  https://github.com/yunxinz/ac-site-template
+  Upstream license: MIT License
+  Used as layout/effect reference. Selected assets were copied or adapted with attribution.
+
+Nintendo / trademark notice:
+This theme is not an official Nintendo product, is not endorsed by Nintendo, and is not affiliated with Nintendo. It does not claim ownership of any Nintendo trademark, game title, character, artwork, or intellectual property.
+
+Liability notice:
+Users are responsible for their own download, modification, deployment, publication, and use of this project. Any legal dispute, infringement claim, compliance issue, damage, or liability arising from such use is unrelated to the author/maintainer of this repository.
+
+Keep this file together with LICENSE, LEGAL_NOTICE.md, and docs/ASSETS_AND_CREDITS.md when copying, modifying, or publicly sharing this project.

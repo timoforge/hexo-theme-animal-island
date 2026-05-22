@@ -1,0 +1,8 @@
+<% const assets = theme.assets || {}; const labels = theme.labels || {}; %>
+<section class="ai-hero ai-paper-card">
+  <img class="ai-hero__icon" src="<%- url_for(assets.not_found_icon || '/images/island-assets/not-found.png') %>" alt="">
+  <p class="ai-hero__greeting"><%- labels.not_found_code || '404' %></p>
+  <h1><%- labels.not_found_title || '岛上好像没有这个地方' %></h1>
+  <p class="ai-hero__subtitle"><%- labels.not_found_subtitle || '也许路径写错了，或者这篇文章还在建设中。' %></p>
+  <a class="ai-btn ai-btn--primary" href="<%- url_for('/') %>"><%- labels.not_found_back_home || '返回首页' %></a>
+</section>

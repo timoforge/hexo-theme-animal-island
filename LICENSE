@@ -1,0 +1,41 @@
+Personal Learning and Non-Commercial License
+============================================
+
+Copyright (c) 2026 Animal Island Hexo Theme contributors
+
+This project is source-available only for personal learning, research, and non-commercial demonstration.
+
+Permission is granted to view, clone, copy, and modify this project only for personal learning and non-commercial purposes, subject to all of the following conditions:
+
+1. Commercial use is strictly prohibited. You may not sell, rent, license, sublicense, provide paid access to, use in paid client work, use in SaaS or hosted commercial services, use in advertising, package into paid templates, or otherwise monetize this project or any derivative work.
+2. You must keep LICENSE, LEGAL_NOTICE.md, CREDITS.txt, and docs/ASSETS_AND_CREDITS.md with all copies or substantial portions of this project.
+3. You must preserve third-party attributions and comply with the applicable upstream licenses and notices for credited third-party materials.
+4. You may not describe this project as an official Nintendo product, an endorsed Nintendo product, or a Nintendo-affiliated project.
+5. You are solely responsible for how you download, modify, deploy, publish, or otherwise use this project.
+
+The UI elements, visual style references, component tokens, and selected assets used by this project are credited to animal-island-ui by guokaigdg and other sources listed in CREDITS.txt and docs/ASSETS_AND_CREDITS.md. They are not provided by Nintendo.
+
+This project is provided "as is", without warranty of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event shall the authors or maintainers be liable for any claim, dispute, damage, loss, infringement allegation, compliance issue, or other liability arising from or related to the use, modification, distribution, deployment, or inability to use this project.
+
+If you do not agree with these terms, do not use this project.
+
+个人学习与非商业使用许可
+========================
+
+版权所有 (c) 2026 Animal Island Hexo Theme contributors
+
+本项目源码公开，但仅限个人学习、研究与非商业演示使用。
+
+在遵守以下全部条件的前提下，你可以仅为个人学习与非商业目的查看、克隆、复制和修改本项目：
+
+1. 严禁商业使用。不得出售、出租、授权、再授权、提供付费访问、用于付费客户项目、用于 SaaS 或托管商业服务、用于广告、打包为付费模板，或以其他方式将本项目或其衍生作品商业化。
+2. 复制、修改或公开分享本项目时，必须保留 LICENSE、LEGAL_NOTICE.md、CREDITS.txt 和 docs/ASSETS_AND_CREDITS.md。
+3. 必须保留第三方鸣谢，并遵守已鸣谢第三方材料对应的上游许可证与声明。
+4. 不得将本项目描述为 Nintendo 官方产品、Nintendo 授权产品或与 Nintendo 有关联的项目。
+5. 你需要自行负责下载、修改、部署、发布或以其他方式使用本项目所产生的一切后果。
+
+本项目使用的 UI 元素、视觉风格参考、组件 token 与部分素材已在 CREDITS.txt 和 docs/ASSETS_AND_CREDITS.md 中注明，主要来源/参考为 guokaigdg 的 animal-island-ui 及其他已列明来源；这些素材不是 Nintendo 提供的素材。
+
+本项目按“现状”提供，不提供任何明示或暗示担保，包括但不限于适销性、特定用途适用性和不侵权担保。因使用、修改、分发、部署本项目或无法使用本项目而产生的任何主张、纠纷、损失、侵权指控、合规问题或其他责任，作者和维护者均不承担责任。
+
+如果你不同意上述条款，请不要使用本项目。

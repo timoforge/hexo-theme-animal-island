@@ -1,0 +1,22 @@
+<%
+const labels = theme.labels || {};
+const archiveTitle = page.archive
+  ? (labels.archive_title || '文章归档')
+  : (page.category || page.tag || labels.list_title || '文章列表');
+%>
+<section class="ai-archive ai-paper-card">
+  <header class="ai-article-header">
+    <p class="ai-island-label"><%- labels.archive_label || 'Island Archive' %></p>
+    <h1><%- archiveTitle %></h1>
+  </header>
+  <div class="ai-divider"></div>
+  <div class="ai-timeline">
+    <% page.posts.each(function(post) { %>
+      <article class="ai-timeline-item">
+        <time><%- date(post.date, 'YYYY-MM-DD') %></time>
+        <a href="<%- url_for(post.path) %>"><%- post.title || labels.untitled_post || '未命名文章' %></a>
+      </article>
+    <% }); %>
+  </div>
+  <%- partial('_partial/pagination') %>
+</section>
