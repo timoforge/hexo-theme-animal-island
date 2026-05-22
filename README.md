@@ -24,7 +24,9 @@ This project is **not** an official Nintendo product, is **not** endorsed by Nin
 
 ## 🌊 Demo
 
-- 🏖️ Live demo: coming soon.
+- 🏖️ [Online preview](https://hexo-theme-animal-island-demo.pages.dev)
+
+![Animal Island theme home page preview](./docs/assets/animal-island-home-preview.png)
 
 ## 🌿 Features
 

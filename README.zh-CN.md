@@ -24,7 +24,9 @@
 
 ## 🌊 演示
 
-- 🏖️ 在线 Demo：即将添加。
+- 🏖️ [在线预览](https://hexo-theme-animal-island-demo.pages.dev)
+
+![Animal Island 主题首页预览](./docs/assets/animal-island-home-preview.png)
 
 ## 🌿 功能亮点
 
