@@ -238,10 +238,10 @@ links:
   - name: GitHub
     url: https://github.com/timoforge/hexo-theme-animal-island
   - name: RSS
-    url: /atom.xml
+    url: ""
 ```
 
-外链会自动使用 `_blank` 打开；站内链接使用当前窗口打开。
+外链会自动使用 `_blank` 打开；站内链接使用当前窗口打开；`url` 留空时会保留显示为不可点击文本。
 
 ## 主题模式
 

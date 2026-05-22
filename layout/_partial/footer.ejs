@@ -4,8 +4,12 @@
   <p>&copy; <%= new Date().getFullYear() %> <%- config.author || config.title %>. <%- footer.text || 'Made with Hexo on Animal Island.' %></p>
   <% if (theme.links && theme.links.length) { %>
     <div class="ai-footer-links">
-      <% theme.links.forEach(function(link) { %>
-        <a href="<%- link.url %>" target="<%= /^https?:/.test(link.url) ? '_blank' : '_self' %>" rel="noopener"><%- link.name %></a>
+      <% theme.links.forEach(function(link) { const linkUrl = link && link.url ? String(link.url).trim() : ''; %>
+        <% if (linkUrl) { %>
+          <a href="<%- linkUrl %>" target="<%= /^https?:/.test(linkUrl) ? '_blank' : '_self' %>" rel="noopener"><%- link.name %></a>
+        <% } else { %>
+          <span><%- link.name %></span>
+        <% } %>
       <% }); %>
     </div>
   <% } %>
