@@ -1,4 +1,6 @@
-# 配置手册
+# ⚙️ Configuration Guide / 配置手册
+
+Theme defaults live in the theme directory.
 
 主题默认配置位于主题目录：
 
@@ -6,15 +8,21 @@
 _config.yml
 ```
 
+For real Hexo sites, create a site-level override file.
+
 在实际 Hexo 站点中，推荐创建站点级覆盖文件：
 
 ```text
 _config.animal-island.yml
 ```
 
+This keeps personal settings outside the theme package, so upgrades do not overwrite them.
+
 这样以后升级主题时，不需要直接改主题目录里的默认配置。
 
-## profile
+## 🧑 profile
+
+Sidebar avatar, name, intro, and status text.
 
 侧边栏头像、名称、简介与状态文案。
 
@@ -22,18 +30,20 @@ _config.animal-island.yml
 profile:
   avatar: /images/island-assets/profile.jpg
   name: "Islander"
-  intro: "欢迎来到我的无人岛博客。"
+  intro: "欢迎来到我的小岛博客。"
   status: "今天也在岛上写作、记录和探索。"
 ```
 
-字段说明：
+Fields / 字段说明：
 
-- `avatar`：头像图片 public 路径。
-- `name`：侧边栏头像下方名称；留空或删除时使用 Hexo 站点 `author`，再退回到站点 `title`。
-- `intro`：侧边栏个人简介。
-- `status`：侧边栏底部和右侧装饰卡片的默认状态文案。
+- `avatar`: public path for the avatar image. / 头像图片 public 路径。
+- `name`: name under the avatar; falls back to Hexo `author`, then site `title`. / 侧边栏头像下方名称；留空或删除时使用 Hexo 站点 `author`，再退回到站点 `title`。
+- `intro`: short sidebar bio. / 侧边栏个人简介。
+- `status`: default status shown at the sidebar bottom and right notice card. / 侧边栏底部和右侧装饰卡片的默认状态文案。
 
-## assets
+## 🖼️ assets
+
+Default image asset paths used by the theme.
 
 主题默认图像资源路径。
 
@@ -50,9 +60,13 @@ assets:
   side_leaf_night: /images/island-assets/side-guide.svg
 ```
 
+These paths are rendered through Hexo `url_for()`, so they work with the site's `root` setting.
+
 这些路径会通过 Hexo 的 `url_for()` 输出，能适配站点 `root` 配置。
 
-## hero
+## 🏡 hero
+
+Home page hero area.
 
 首页头图区域。
 
@@ -67,7 +81,9 @@ hero:
   cta_url: /archives/
 ```
 
-## side_board
+## 🪧 side_board
+
+Right-side decorative board shared by most pages.
 
 统一底板右侧装饰栏。
 
@@ -83,13 +99,15 @@ side_board:
     - /images/island-assets/drawing.png
 ```
 
-- `label`：右侧公告卡片顶部小标题。
-- `title` 留空时使用站点 `title`。
-- `description` 留空时使用 `profile.status`，再退回到站点 `description`。
-- `bubble`：右侧气泡文字。
-- `icons` 可以放任意 public 图片路径。
+- `label`: small label above the notice card. / 右侧公告卡片顶部小标题。
+- `title`: falls back to site `title` when empty. / 留空时使用站点 `title`。
+- `description`: falls back to `profile.status`, then site `description`. / 留空时使用 `profile.status`，再退回到站点 `description`。
+- `bubble`: right-side bubble text. / 右侧气泡文字。
+- `icons`: any public image paths. / 可以放任意 public 图片路径。
 
-## toc
+## 📚 toc
+
+Sticky post table of contents. It extracts headings from rendered post HTML and keeps the TOC visible on desktop.
 
 文章详情页右侧悬浮书签式自动大纲。开启后，主题会从每篇文章渲染后的标题标签中自动提取目录，并吸附在页面右侧随滚动保持可见。
 
@@ -101,38 +119,37 @@ toc:
   max_items: 32
 ```
 
-字段说明：
+Fields / 字段说明：
 
-- `enable`：是否默认在所有文章详情页显示大纲。
-- `min_depth`：参与大纲的最小标题级别，默认 `2`，对应 Markdown 的 `##`。
-- `max_depth`：参与大纲的最大标题级别，默认 `4`，对应 Markdown 的 `####`。
-- `max_items`：最多显示多少个标题，设置为 `0` 表示不限制。
+- `enable`: show TOC by default on post pages. / 是否默认在所有文章详情页显示大纲。
+- `min_depth`: minimum heading level, default `2` for Markdown `##`. / 参与大纲的最小标题级别，默认 `2`，对应 Markdown 的 `##`。
+- `max_depth`: maximum heading level, default `4` for Markdown `####`. / 参与大纲的最大标题级别，默认 `4`，对应 Markdown 的 `####`。
+- `max_items`: maximum heading count; `0` means unlimited. / 最多显示多少个标题，设置为 `0` 表示不限制。
 
-桌面端大纲会以悬浮书签样式固定在文章右侧可视区域内，并自动高亮当前阅读位置；窄屏设备会自动隐藏右侧大纲，避免挤压正文。
+Per-post overrides are supported in front matter.
 
-单篇文章可以在 front-matter 中覆盖：
+单篇文章可以在 front matter 中覆盖：
 
 ```yaml
 ---
-title: 示例文章
+title: My post
 toc: false
 ---
 ```
 
-如果只想调整单篇文章的大纲层级：
-
 ```yaml
 ---
-title: 示例文章
+title: My post
 toc:
   min_depth: 2
   max_depth: 3
+toc_title: "On this page"
 ---
 ```
 
-也可以用 `toc_title` 覆盖单篇文章的大纲标题。
+## 🧭 menu
 
-## menu
+Sidebar main navigation.
 
 侧边栏主导航。
 
@@ -148,13 +165,15 @@ menu:
     icon: /images/island-assets/photos.png
 ```
 
-每一项支持：
+Each item supports / 每一项支持：
 
-- `text`：显示文字。
-- `url`：跳转地址。
-- `icon`：导航图标，可留空。
+- `text`: displayed label. / 显示文字。
+- `url`: destination URL. / 跳转地址。
+- `icon`: optional navigation icon. / 导航图标，可留空。
 
-如果添加自定义页面，比如 `friends`：
+For a custom page such as `friends`, add a menu item and create the page in Hexo.
+
+如果添加自定义页面，比如 `friends`，需要添加菜单并在 Hexo 中创建对应页面：
 
 ```yaml
 menu:
@@ -164,15 +183,15 @@ menu:
     icon: /images/island-assets/messages.png
 ```
 
-同时需要在 Hexo 中创建对应页面：
-
 ```bash
 hexo new page friends
 ```
 
-## labels
+## 🏷️ labels
 
-模板中的界面文字集中在 `labels` 中，截图里标注的固定文案都可以在这里覆盖。
+Fixed UI text can be overridden through `labels`.
+
+模板中的界面文字集中在 `labels` 中，固定文案都可以在这里覆盖。
 
 ```yaml
 labels:
@@ -213,20 +232,19 @@ labels:
   not_found_back_home: "返回首页"
 ```
 
-常用字段对应关系：
+Common mappings / 常用字段对应关系：
 
-- `profile_label`：侧边栏个人卡片上的身份标签。
-- `toc_label`、`toc_title`、`toc_aria`、`toc_empty`：文章详情页右侧大纲的标签、标题、无目录提示和辅助朗读文案。
-- `theme_title`、`theme_day`、`theme_night`：侧边栏底色主题切换区文字。
-- `theme_day_short`、`theme_night_short`：移动端顶部主题切换短文字。
-- `archive_label`、`archive_title`、`list_title`：归档 / 列表页面标题文字。
-- `page_label`：独立页面顶部标签。
-- `search_*`：搜索页标题标签、输入框、按钮、初始提示、无结果提示和无脚本提示。
-- `untitled_post`：文章无标题时的备用标题。
-- `pagination_prev`、`pagination_next`：分页按钮文字。
-- `not_found_*`：404 页面文案。
+- `profile_label`: profile-card identity label. / 侧边栏个人卡片上的身份标签。
+- `toc_*`: post TOC labels, title, aria text, and empty state. / 文章详情页右侧大纲的标签、标题、辅助朗读文案和无目录提示。
+- `theme_*`: day/night switch text. / 底色主题切换区文字。
+- `archive_label`, `archive_title`, `list_title`: archive and list page labels. / 归档 / 列表页面标题文字。
+- `search_*`: search page text, placeholder, button, initial state, empty state, and no-script text. / 搜索页标题标签、输入框、按钮、初始提示、无结果提示和无脚本提示。
+- `pagination_prev`, `pagination_next`: pagination buttons. / 分页按钮文字。
+- `not_found_*`: 404 page text. / 404 页面文案。
 
-## footer / links
+## 🧾 footer / links
+
+Footer text and links.
 
 页脚文案和链接。
 
@@ -241,9 +259,13 @@ links:
     url: ""
 ```
 
+External links open in a new tab. Internal links open in the current tab. Empty `url` values are displayed as non-clickable text.
+
 外链会自动使用 `_blank` 打开；站内链接使用当前窗口打开；`url` 留空时会保留显示为不可点击文本。
 
-## 主题模式
+## 🌗 Theme mode / 主题模式
+
+The theme has two modes.
 
 主题内置两个模式：
 
@@ -252,17 +274,19 @@ day
 night
 ```
 
-浏览器保存键：
+Browser storage key / 浏览器保存键：
 
 ```text
 animal-island-theme
 ```
 
-按钮属性：
+Button attributes / 按钮属性：
 
 ```text
 data-theme-choice="day"
 data-theme-choice="night"
 ```
+
+CSS switches night variables through `html[data-theme="night"]`. `labels.theme_day` and `labels.theme_night` only change visible text; they do not change actual theme values.
 
 CSS 根据 `html[data-theme="night"]` 切换夜色变量。`labels.theme_day` 和 `labels.theme_night` 只修改按钮显示文字，不改变实际主题值。
