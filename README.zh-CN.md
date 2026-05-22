@@ -218,6 +218,12 @@ hexo clean && hexo generate
 - 🙏 [素材与鸣谢](./docs/ASSETS_AND_CREDITS.zh-CN.md)
 - ⚠️ [法律声明与使用限制](./LEGAL_NOTICE.md)
 
+## 🌱 参考资源
+
+- [animal-island-ui](https://github.com/guokaigdg/animal-island-ui) by guokaigdg — UI 元素、视觉 token 与部分小岛风格素材参考。
+- [ac-site-template](https://github.com/yunxinz/ac-site-template) by Zhang Yunxin / yunxinz — 布局氛围与装饰素材参考。
+- 完整鸣谢与使用说明：[docs/ASSETS_AND_CREDITS.zh-CN.md](./docs/ASSETS_AND_CREDITS.zh-CN.md)。
+
 ## 🚢 GitHub 发布检查清单
 
 上传 GitHub 公开仓库前建议检查：

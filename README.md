@@ -218,6 +218,12 @@ There is no separate test suite or lint script in this theme package. The valida
 - 🙏 [Assets and credits](./docs/ASSETS_AND_CREDITS.md)
 - ⚠️ [Legal notice and usage restrictions](./LEGAL_NOTICE.md)
 
+## 🌱 References
+
+- [animal-island-ui](https://github.com/guokaigdg/animal-island-ui) by guokaigdg — UI elements, visual tokens, and selected island-style assets.
+- [ac-site-template](https://github.com/yunxinz/ac-site-template) by Zhang Yunxin / yunxinz — layout atmosphere and decorative asset references.
+- Full credits and usage notes: [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md).
+
 ## 🚢 Publishing Checklist
 
 Before publishing this theme on GitHub:
