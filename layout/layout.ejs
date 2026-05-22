@@ -71,8 +71,8 @@ const sideIcons = Array.isArray(sideBoard.icons) && sideBoard.icons.length
                 <div class="ai-board-search__control">
                   <span class="ai-board-search__icon" aria-hidden="true">⌕</span>
                   <input id="ai-board-search-input" name="q" type="search" placeholder="<%- labels.search_placeholder || '输入标题、正文、分类或标签' %>" autocomplete="off">
-                  <button type="submit" aria-label="<%- labels.search_submit || '搜索' %>"><span><%- labels.search_submit || '搜索' %></span></button>
                 </div>
+                <button type="submit" aria-label="<%- labels.search_submit || '搜索' %>"><span><%- labels.search_submit || '搜索' %></span></button>
               </form>
               <div class="ai-side-card ai-side-card--notice">
                 <span><%- sideBoard.label || 'Island Board' %></span>

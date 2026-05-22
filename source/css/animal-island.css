@@ -245,16 +245,13 @@ html[data-theme="night"] .ai-island-board::before {
   z-index: 2;
   display: flex;
   align-self: start;
-  max-height: calc(100vh - clamp(96px, 12vh, 132px));
   min-height: 0;
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
   gap: clamp(14px, 1.8vw, 18px);
   padding: clamp(14px, 1.6vw, 18px);
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  overflow: visible;
   border: 1px solid rgba(232, 220, 200, 0.72);
   border-radius: 34px 30px 38px 32px / 32px 38px 30px 36px;
   background: linear-gradient(
@@ -554,23 +551,24 @@ html[data-theme="night"] .ai-search-side-tip__chips button {
 }
 
 .ai-board-search {
-  display: grid;
+  display: flex;
   width: 100%;
   min-width: 0;
+  flex-direction: column;
   gap: 10px;
   margin: 0;
-  padding: 16px 14px 18px;
-  overflow: hidden;
+  padding: 16px 16px 20px;
+  overflow: visible;
   border: 2px solid var(--ai-border-soft);
-  border-bottom-width: 6px;
-  border-radius: 28px 24px 32px 26px / 26px 32px 24px 28px;
+  border-bottom-width: 5px;
+  border-radius: 28px 24px 30px 26px / 26px 30px 24px 28px;
   background: radial-gradient(
       circle at 100% 0,
-      rgba(255, 241, 118, 0.24),
+      rgba(255, 241, 118, 0.22),
       transparent 44%
     ),
     color-mix(in srgb, var(--ai-surface) 88%, transparent);
-  box-shadow: 0 10px 26px rgba(135, 115, 88, 0.12);
+  box-shadow: 0 8px 22px rgba(135, 115, 88, 0.12);
 }
 
 .ai-board-search__label {
@@ -578,18 +576,21 @@ html[data-theme="night"] .ai-search-side-tip__chips button {
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
+  line-height: 1.2;
 }
 
 .ai-board-search__control {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 8px 10px;
+  position: relative;
+  display: flex;
+  width: 100%;
   min-width: 0;
-  padding: 10px;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 14px 0 42px;
   border: 2px solid #c4b89e;
-  border-radius: 24px;
+  border-radius: 999px;
   background: rgb(247, 243, 223);
-  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.62), 0 4px 0 #d4c9b4;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.62), 0 3px 0 #d4c9b4;
   transition: border-color 0.18s ease, box-shadow 0.18s ease,
     transform 0.18s ease;
 }
@@ -597,32 +598,54 @@ html[data-theme="night"] .ai-search-side-tip__chips button {
 .ai-board-search__control:focus-within,
 .ai-board-search__control:hover {
   border-color: #a89878;
-  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.62), 0 4px 0 #c4b89e,
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.62), 0 3px 0 #c4b89e,
     0 0 0 4px rgba(42, 186, 170, 0.12);
   transform: translateY(-1px);
 }
 
 .ai-board-search__icon {
-  display: inline-grid;
-  width: 32px;
-  height: 32px;
-  place-items: center;
-  color: #a0936e;
-  font-size: 1rem;
-  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-50%);
+  border: 2px solid #a0936e;
+  border-radius: 999px;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+}
+
+.ai-board-search__icon::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  bottom: -4px;
+  width: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: #a0936e;
+  transform: rotate(-45deg);
+  transform-origin: center;
 }
 
 .ai-board-search input {
+  flex: 1 1 auto;
   width: 100%;
   min-width: 0;
-  min-height: 32px;
+  height: 30px;
+  min-height: 30px;
+  padding: 0;
   border: 0;
   outline: 0;
   color: #725d42;
   background: transparent;
   font: inherit;
-  font-size: 0.86rem;
+  font-size: clamp(0.72rem, 0.72vw, 0.82rem);
   font-weight: 800;
+  line-height: 30px;
+  text-overflow: ellipsis;
 }
 
 .ai-board-search input::placeholder {
@@ -631,14 +654,13 @@ html[data-theme="night"] .ai-search-side-tip__chips button {
 }
 
 .ai-board-search button {
-  grid-column: 1 / -1;
   width: 100%;
-  min-height: 40px;
+  min-height: 42px;
   border: 0;
   border-radius: 999px;
   color: #fff;
   background: var(--ai-primary);
-  box-shadow: 0 5px 0 var(--ai-primary-dark);
+  box-shadow: 0 4px 0 var(--ai-primary-dark);
   font: inherit;
   font-size: 0.9rem;
   font-weight: 900;
@@ -649,7 +671,7 @@ html[data-theme="night"] .ai-search-side-tip__chips button {
 
 .ai-board-search button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 0 var(--ai-primary-dark);
+  box-shadow: 0 5px 0 var(--ai-primary-dark);
 }
 
 .ai-board-search button:active {
@@ -1576,10 +1598,13 @@ html[data-theme="night"] .ai-toc__empty {
 
 .ai-search-form {
   display: grid;
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: end;
 }
 
 .ai-search-label {
+  grid-column: 1 / -1;
   color: #725d42;
   font-weight: 900;
 }
@@ -1587,9 +1612,9 @@ html[data-theme="night"] .ai-toc__empty {
 .ai-search-control {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 58px;
-  padding: 5px 5px 5px 18px;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 20px;
   border: 2px solid #c4b89e;
   border-radius: 999px;
   background: #fdfdf5;
@@ -1632,9 +1657,11 @@ html[data-theme="night"] .ai-toc__empty {
   box-shadow: none;
 }
 
-.ai-search-control button {
-  min-height: 46px;
-  padding: 0 24px;
+.ai-search-submit {
+  justify-self: stretch;
+  min-width: 136px;
+  min-height: 56px;
+  padding: 0 28px;
   border: 2px solid #f8f8f0;
   border-radius: 999px;
   color: #794f27;
@@ -1647,12 +1674,12 @@ html[data-theme="night"] .ai-toc__empty {
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
-.ai-search-control button:hover {
+.ai-search-submit:hover {
   transform: translateY(-1px);
   box-shadow: 0 6px 0 #bdaea0;
 }
 
-.ai-search-control button:active {
+.ai-search-submit:active {
   transform: translateY(3px);
   box-shadow: 0 1px 0 #bdaea0;
 }
@@ -1986,11 +2013,12 @@ html[data-theme="night"] .ai-toc__empty {
     align-items: flex-start;
   }
 
+  .ai-search-form {
+    grid-template-columns: 1fr;
+  }
+
   .ai-search-control {
-    align-items: stretch;
-    flex-direction: column;
-    padding: 12px;
-    border-radius: 28px;
+    padding: 0 16px;
   }
 
   .ai-search-control__prefix {
@@ -1998,13 +2026,16 @@ html[data-theme="night"] .ai-toc__empty {
   }
 
   .ai-search-control input,
-  .ai-search-control button {
+  .ai-search-submit {
     width: 100%;
   }
 
   .ai-search-control input {
     min-height: 44px;
-    padding: 0 8px;
+  }
+
+  .ai-search-submit {
+    justify-self: stretch;
   }
 
   .ai-timeline-item {

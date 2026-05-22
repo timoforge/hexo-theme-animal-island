@@ -122,8 +122,8 @@ const pageLabel = isSearchPage
           <div class="ai-search-control">
             <span class="ai-search-control__prefix" aria-hidden="true">🔎</span>
             <input id="ai-search-input" name="q" type="search" data-ai-search-input placeholder="<%- labels.search_placeholder || '输入标题、正文、分类或标签' %>" autocomplete="off">
-            <button type="submit"><%- labels.search_submit || '搜索' %></button>
           </div>
+          <button class="ai-search-submit" type="submit"><%- labels.search_submit || '搜索' %></button>
         </form>
       </div>
       <p class="ai-search-stats" data-ai-search-stats>共 <%= searchItems.length %> 篇可搜索文章</p>
