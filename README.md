@@ -1,39 +1,46 @@
-# Hexo Theme Animal Island
+# 🏝️ Hexo Theme Animal Island
 
 <p align="center">
   <strong>English</strong> · <a href="./README.zh-CN.md">简体中文</a>
 </p>
 
-Animal Island is a source-available Hexo theme for personal learning and non-commercial use. It provides a warm island-life look: soft paper cards, rounded panels, playful decorative assets, a phone-like sidebar navigation, and a built-in day/night color switch.
+<p align="center">
+  🍃 A cozy island-style Hexo theme with paper cards, soft colors, day/night mode, and a tiny island UI mood.
+</p>
 
-> **Legal Notice**
-> This project is for personal learning and non-commercial use only. Commercial use, resale, paid redistribution, or use in commercial services is prohibited.
->
-> UI elements, visual tokens, and selected assets are credited to [animal-island-ui](https://github.com/guokaigdg/animal-island-ui) by guokaigdg and other sources listed in [CREDITS.txt](./CREDITS.txt) and [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md). They are not provided by Nintendo.
->
-> This project is not an official Nintendo product, is not endorsed by Nintendo, and is not affiliated with Nintendo. Users are responsible for their own use; any legal disputes or liabilities arising from using this theme or related services are unrelated to the author/maintainer. See [LEGAL_NOTICE.md](./LEGAL_NOTICE.md).
+<p align="center">
+  <strong>Hexo >= 6</strong> · <strong>Node.js >= 16</strong> · <strong>Source-available / Non-commercial only</strong>
+</p>
 
-## Highlights
+---
 
-- Native Hexo theme structure: `layout/`, `source/`, and `_config.yml`.
-- Island-board layout shared by home, posts, pages, archives, categories, tags, search, and 404 pages.
-- Responsive sidebar, mobile drawer menu, profile card, navigation icons, and decorative right rail.
-- Client-side search page for post titles, content, categories, and tags. No external search service required.
-- Category and tag overview pages rendered from Hexo collections.
-- Sticky post table of contents generated from article headings, with per-post front-matter overrides.
-- Explicit day/night theme switch stored in `localStorage` with early `<head>` initialization to reduce flashing.
-- Configurable profile, hero banner, menu, labels, side board, footer links, images, and TOC behavior.
-- Unified custom cursor for links, buttons, and form controls.
-- Lightweight validation script for release checks.
+## ⚠️ Legal Notice
 
-## Requirements
+This project is provided only for **personal learning, research, and non-commercial demonstration**. Commercial use, resale, paid redistribution, or use in commercial services is prohibited.
 
-- Hexo `>= 6`
-- Node.js `>= 16`
+UI elements, visual tokens, and selected assets are credited to [animal-island-ui](https://github.com/guokaigdg/animal-island-ui) by guokaigdg and other sources listed in [CREDITS.txt](./CREDITS.txt) and [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md). They are not provided by Nintendo.
 
-## Quick Start
+This project is **not** an official Nintendo product, is **not** endorsed by Nintendo, and is **not** affiliated with Nintendo. Users are responsible for their own use. See [LEGAL_NOTICE.md](./LEGAL_NOTICE.md) and [LICENSE](./LICENSE).
 
-Clone this repository into the `themes/` directory of your Hexo site:
+## 🌊 Demo
+
+- 🏖️ Live demo: coming soon.
+
+## 🌿 Features
+
+- 🏡 Native Hexo theme structure: `layout/`, `source/`, and `_config.yml`.
+- 📱 Responsive sidebar, mobile drawer menu, profile card, navigation icons, and decorative right rail.
+- 🌗 Built-in `day` / `night` theme switch stored in `localStorage`.
+- 🔎 Client-side site search for post titles, content, categories, and tags.
+- 🧭 Category and tag overview pages rendered from Hexo collections.
+- 📚 Sticky post table of contents generated from rendered article headings.
+- 🧩 Configurable profile, hero area, menu, labels, side board, footer links, images, and TOC behavior.
+- 🖱️ Unified custom cursor for links, buttons, and form controls.
+- 🧪 Lightweight validation script for release checks.
+
+## 📦 Installation
+
+Clone the theme into your Hexo site's `themes/` directory:
 
 ```bash
 cd /path/to/your-hexo-site
@@ -41,7 +48,7 @@ mkdir -p themes
 git clone https://github.com/timoforge/hexo-theme-animal-island.git themes/animal-island
 ```
 
-Then enable the theme in the Hexo site root `_config.yml`:
+Enable the theme in the Hexo site root `_config.yml`:
 
 ```yaml
 theme: animal-island
@@ -57,14 +64,13 @@ Generate the site:
 
 ```bash
 hexo clean && hexo generate
-# or use your own npm build script
 ```
 
 > If you rename the theme folder, the `theme:` value must match the folder name. The override file name must match as well, for example `_config.<theme-name>.yml`.
 
-## Recommended Pages
+## 🗺️ Recommended Pages
 
-The default menu points to search, categories, tags, archives, and about pages. Archives are built in by Hexo, but the other pages should be created in your site:
+The default menu points to search, categories, tags, archives, and about pages. Archives are built in by Hexo, but the other pages should be created in your Hexo site:
 
 ```bash
 hexo new page search
@@ -73,7 +79,7 @@ hexo new page tags
 hexo new page about
 ```
 
-Set the front matter for the generated pages:
+Set the page front matter:
 
 ```yaml
 # source/search/index.md
@@ -99,17 +105,15 @@ type: tags
 ---
 ```
 
-The `search` page is powered by the theme's client-side script. The `categories` and `tags` pages read `site.categories` and `site.tags` from Hexo.
+## ⚙️ Configuration
 
-## Configuration
-
-Theme defaults live in the theme package:
+Theme defaults live in this repository:
 
 ```text
 _config.yml
 ```
 
-For real sites, keep your custom values in the Hexo site root override file:
+For real sites, keep custom values in the Hexo site root override file:
 
 ```text
 _config.animal-island.yml
@@ -135,20 +139,20 @@ toc:
   min_depth: 2
   max_depth: 4
 
-labels:
-  profile_label: "Island Representative"
-  search_aria: "Site search"
-  archive_title: "Archives"
-  theme_title: "Theme"
+links:
+  - name: GitHub
+    url: https://github.com/timoforge/hexo-theme-animal-island
+  - name: RSS
+    url: ""
 ```
 
-See the complete example in [examples/\_config.animal-island.yml](./examples/_config.animal-island.yml) and the configuration guide in [docs/CONFIGURATION.md](./docs/CONFIGURATION.md).
+See the complete example in [examples/_config.animal-island.yml](./examples/_config.animal-island.yml) and the full guide in [docs/CONFIGURATION.md](./docs/CONFIGURATION.md).
 
-## Post Table of Contents
+## 📚 Post TOC
 
 The post TOC is enabled by default and reads headings from rendered post content.
 
-Disable it for a single post:
+Disable it for one post:
 
 ```yaml
 ---
@@ -169,7 +173,7 @@ toc_title: "On this page"
 ---
 ```
 
-## Theme Switching
+## 🌗 Theme Switching
 
 Theme buttons use:
 
@@ -183,28 +187,13 @@ The browser storage key is:
 animal-island-theme
 ```
 
-Supported values are `day` and `night`. The theme writes the value to `html[data-theme]` before CSS loads to reduce refresh flicker.
+Supported values are `day` and `night`. The value is written to `html[data-theme]` before CSS loads to reduce refresh flicker.
 
-## Documentation
-
-Detailed guides are available in `docs/`:
-
-- [Installation](./docs/INSTALLATION.md)
-- [Configuration](./docs/CONFIGURATION.md)
-- [Customization](./docs/CUSTOMIZATION.md)
-- [Development](./docs/DEVELOPMENT.md)
-- [Project structure](./docs/STRUCTURE.md)
-- [Project manual](./docs/PROJECT_MANUAL.md)
-- [Troubleshooting](./docs/TROUBLESHOOTING.md)
-- [Assets and credits](./docs/ASSETS_AND_CREDITS.md)
-- [Legal notice and usage restrictions](./LEGAL_NOTICE.md)
-
-## Development and Validation
+## 🧰 Development
 
 Run the built-in validation script before publishing changes:
 
 ```bash
-cd /path/to/hexo-theme-animal-island
 npm run validate
 ```
 
@@ -215,17 +204,32 @@ cd /path/to/your-hexo-site
 hexo clean && hexo generate
 ```
 
-## Publishing Checklist
+There is no separate test suite or lint script in this theme package. The validation script checks required files, CSS asset references, JavaScript syntax, EJS tags, theme/cursor conventions, image references, and release-safety wording.
+
+## 🧾 Documentation
+
+- 📦 [Installation](./docs/INSTALLATION.md)
+- ⚙️ [Configuration](./docs/CONFIGURATION.md)
+- 🎨 [Customization](./docs/CUSTOMIZATION.md)
+- 🧰 [Development](./docs/DEVELOPMENT.md)
+- 🏗️ [Project structure](./docs/STRUCTURE.md)
+- 🗒️ [Project manual](./docs/PROJECT_MANUAL.md)
+- 🩹 [Troubleshooting](./docs/TROUBLESHOOTING.md)
+- 🙏 [Assets and credits](./docs/ASSETS_AND_CREDITS.md)
+- ⚠️ [Legal notice and usage restrictions](./LEGAL_NOTICE.md)
+
+## 🚢 Publishing Checklist
 
 Before publishing this theme on GitHub:
 
-1. Confirm the clone URL in installation snippets matches the final GitHub repository owner.
-2. Keep `LICENSE`, `LEGAL_NOTICE.md`, `CREDITS.txt`, and [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md).
-3. Make sure the non-commercial and personal-learning-only restrictions are visible and unchanged.
-4. Run `npm run validate`.
-5. Test `hexo clean && hexo generate` in at least one Hexo site.
-6. Keep [README.md](./README.md) and [README.zh-CN.md](./README.zh-CN.md) in sync.
+- [ ] Run `npm run validate`.
+- [ ] Test `hexo clean && hexo generate` in at least one Hexo site.
+- [ ] Keep `README.md` and `README.zh-CN.md` in sync.
+- [ ] Keep `LICENSE`, `LEGAL_NOTICE.md`, `CREDITS.txt`, and `docs/ASSETS_AND_CREDITS.md`.
+- [ ] Keep the personal-learning-only and non-commercial restrictions visible.
 
-## License and Usage Restrictions
+## 📜 License
 
-This project is source-available for personal learning and non-commercial use only. Commercial use is prohibited. See [LICENSE](./LICENSE) and [LEGAL_NOTICE.md](./LEGAL_NOTICE.md). Third-party UI elements, references, and asset credits are listed in [CREDITS.txt](./CREDITS.txt) and [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md); keep these notices when copying, modifying, or publicly sharing this theme.
+This project is source-available for personal learning and non-commercial use only. Commercial use is prohibited. See [LICENSE](./LICENSE) and [LEGAL_NOTICE.md](./LEGAL_NOTICE.md).
+
+Third-party UI elements, references, and asset credits are listed in [CREDITS.txt](./CREDITS.txt) and [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md). Keep these notices when copying, modifying, or publicly sharing this theme.

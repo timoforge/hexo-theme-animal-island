@@ -1,37 +1,44 @@
-# Hexo Theme Animal Island
+# 🏝️ Hexo Theme Animal Island
 
 <p align="center">
   <a href="./README.md">English</a> · <strong>简体中文</strong>
 </p>
 
-Animal Island 是一套源码公开的 Hexo 主题，仅供个人学习与非商业使用。视觉上采用温暖的小岛生活氛围：柔和纸片卡片、圆角面板、轻松的装饰素材、类似手机应用的侧边导航，以及内置浅色 / 夜色切换。
+<p align="center">
+  🍃 一套温暖小岛风格的 Hexo 主题：纸片卡片、柔和配色、昼夜切换，还有轻松的岛屿 UI 氛围。
+</p>
 
-> **法律声明**
-> 本项目仅供个人学习和非商业用途使用，严禁商业使用、转售、付费分发或用于商业服务。
->
-> 本项目的 UI 元素、视觉 token 与部分素材来自或参考自 guokaigdg 的 [animal-island-ui](https://github.com/guokaigdg/animal-island-ui)，以及 [CREDITS.txt](./CREDITS.txt) 与 [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md) 中列明的其他来源；这些 UI 元素不是 Nintendo 提供的素材。
->
-> 本项目不是 Nintendo 官方产品，未获得 Nintendo 背书，也与 Nintendo 无任何关联。使用者需自行承担使用本主题或相关服务产生的后果；由此产生的任何法律纠纷或责任均与本仓库作者/维护者无关。详见 [LEGAL_NOTICE.md](./LEGAL_NOTICE.md)。
+<p align="center">
+  <strong>Hexo >= 6</strong> · <strong>Node.js >= 16</strong> · <strong>源码公开 / 仅限非商业使用</strong>
+</p>
 
-## 功能亮点
+---
 
-- Hexo 原生主题结构：`layout/`、`source/` 与 `_config.yml`。
-- 首页、文章、独立页面、归档、分类、标签、搜索和 404 页面共享小岛底板布局。
-- 响应式侧边栏、移动端抽屉菜单、个人资料卡片、导航图标和右侧装饰栏。
-- 内置客户端站内搜索，可搜索文章标题、正文、分类和标签，不依赖第三方搜索服务。
-- 分类 / 标签总览页会从 Hexo 的 `site.categories` 和 `site.tags` 自动渲染。
-- 文章页右侧自动生成悬浮目录，支持单篇文章通过 front-matter 覆盖。
-- 显式浅色 / 夜色双按钮切换，状态写入 `localStorage`，并在 `<head>` 提前初始化以减少刷新闪烁。
-- 可配置个人信息、首页横幅、菜单、界面文案、右侧公告栏、页脚链接、图片资源和文章目录行为。
-- 链接、按钮和表单控件使用统一自定义光标。
-- 自带轻量静态校验脚本，便于公开发布前检查。
+## ⚠️ 法律声明
 
-## 环境要求
+本项目仅供 **个人学习、研究与非商业演示** 使用。严禁商业使用、转售、付费分发或用于商业服务。
 
-- Hexo `>= 6`
-- Node.js `>= 16`
+本项目的 UI 元素、视觉 token 与部分素材来自或参考自 guokaigdg 的 [animal-island-ui](https://github.com/guokaigdg/animal-island-ui)，以及 [CREDITS.txt](./CREDITS.txt) 与 [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md) 中列明的其他来源；这些 UI 元素不是 Nintendo 提供的素材。
 
-## 快速开始
+本项目 **不是** Nintendo 官方产品，**未获得** Nintendo 背书，也 **与 Nintendo 无任何关联**。使用者需自行承担使用后果。详见 [LEGAL_NOTICE.md](./LEGAL_NOTICE.md) 和 [LICENSE](./LICENSE)。
+
+## 🌊 演示
+
+- 🏖️ 在线 Demo：即将添加。
+
+## 🌿 功能亮点
+
+- 🏡 Hexo 原生主题结构：`layout/`、`source/` 与 `_config.yml`。
+- 📱 响应式侧边栏、移动端抽屉菜单、个人资料卡片、导航图标和右侧装饰栏。
+- 🌗 内置 `day` / `night` 昼夜切换，状态写入 `localStorage`。
+- 🔎 客户端站内搜索，可搜索文章标题、正文、分类和标签。
+- 🧭 分类 / 标签总览页会从 Hexo 集合自动渲染。
+- 📚 文章页右侧自动生成悬浮目录。
+- 🧩 可配置个人信息、首页横幅、菜单、界面文案、右侧公告栏、页脚链接、图片资源和文章目录行为。
+- 🖱️ 链接、按钮和表单控件使用统一自定义光标。
+- 🧪 自带轻量静态校验脚本，便于发布前检查。
+
+## 📦 安装
 
 把主题克隆到 Hexo 站点的 `themes/` 目录：
 
@@ -57,14 +64,13 @@ cp themes/animal-island/examples/_config.animal-island.yml _config.animal-island
 
 ```bash
 hexo clean && hexo generate
-# 或者使用你自己的 npm 构建命令
 ```
 
 > 如果你把主题目录改成别的名字，`theme:` 的值必须与目录名一致；覆盖配置文件名也要对应，例如 `_config.<theme-name>.yml`。
 
-## 推荐创建的页面
+## 🗺️ 推荐页面
 
-默认菜单指向搜索、分类、标签、归档和关于页面。归档由 Hexo 内置生成，其他页面建议在站点中创建：
+默认菜单指向搜索、分类、标签、归档和关于页面。归档由 Hexo 内置生成，其他页面建议在 Hexo 站点中创建：
 
 ```bash
 hexo new page search
@@ -73,7 +79,7 @@ hexo new page tags
 hexo new page about
 ```
 
-为生成后的页面设置 front matter：
+为页面设置 front matter：
 
 ```yaml
 # source/search/index.md
@@ -99,9 +105,7 @@ type: tags
 ---
 ```
 
-`search` 页面由主题内置客户端脚本驱动；`categories` 和 `tags` 页面会读取 Hexo 的 `site.categories` 与 `site.tags`。
-
-## 配置方式
+## ⚙️ 配置
 
 主题默认配置位于主题包内：
 
@@ -135,16 +139,16 @@ toc:
   min_depth: 2
   max_depth: 4
 
-labels:
-  profile_label: "Island Representative"
-  search_aria: "站内搜索"
-  archive_title: "文章归档"
-  theme_title: "底色主题"
+links:
+  - name: GitHub
+    url: https://github.com/timoforge/hexo-theme-animal-island
+  - name: RSS
+    url: ""
 ```
 
-完整示例见 [examples/\_config.animal-island.yml](./examples/_config.animal-island.yml)，详细字段说明见 [docs/CONFIGURATION.md](./docs/CONFIGURATION.md)。
+完整示例见 [examples/_config.animal-island.yml](./examples/_config.animal-island.yml)，详细字段说明见 [docs/CONFIGURATION.md](./docs/CONFIGURATION.md)。
 
-## 文章目录
+## 📚 文章目录
 
 文章目录默认开启，会从文章渲染后的标题中自动提取。
 
@@ -169,7 +173,7 @@ toc_title: "本文目录"
 ---
 ```
 
-## 主题切换
+## 🌗 主题切换
 
 主题按钮使用：
 
@@ -185,26 +189,11 @@ animal-island-theme
 
 支持值为 `day` 和 `night`。主题会在 CSS 加载前把保存值写入 `html[data-theme]`，从而减少刷新时的闪烁。
 
-## 文档目录
-
-详细文档位于 `docs/`：
-
-- [安装手册](./docs/INSTALLATION.md)
-- [配置手册](./docs/CONFIGURATION.md)
-- [定制手册](./docs/CUSTOMIZATION.md)
-- [开发手册](./docs/DEVELOPMENT.md)
-- [项目结构](./docs/STRUCTURE.md)
-- [项目使用手册](./docs/PROJECT_MANUAL.md)
-- [故障排查](./docs/TROUBLESHOOTING.md)
-- [素材与鸣谢](./docs/ASSETS_AND_CREDITS.md)
-- [法律声明与使用限制](./LEGAL_NOTICE.md)
-
-## 开发与校验
+## 🧰 开发
 
 发布前建议运行主题自带校验脚本：
 
 ```bash
-cd /path/to/hexo-theme-animal-island
 npm run validate
 ```
 
@@ -215,17 +204,32 @@ cd /path/to/your-hexo-site
 hexo clean && hexo generate
 ```
 
-## GitHub 发布检查清单
+本主题包没有单独的测试套件或 lint 脚本。校验脚本会检查关键文件、CSS 资源引用、JavaScript 语法、EJS 标签、主题/光标约定、图片引用和发布安全措辞。
+
+## 🧾 文档目录
+
+- 📦 [安装手册](./docs/INSTALLATION.md)
+- ⚙️ [配置手册](./docs/CONFIGURATION.md)
+- 🎨 [定制手册](./docs/CUSTOMIZATION.md)
+- 🧰 [开发手册](./docs/DEVELOPMENT.md)
+- 🏗️ [项目结构](./docs/STRUCTURE.md)
+- 🗒️ [项目使用手册](./docs/PROJECT_MANUAL.md)
+- 🩹 [故障排查](./docs/TROUBLESHOOTING.md)
+- 🙏 [素材与鸣谢](./docs/ASSETS_AND_CREDITS.md)
+- ⚠️ [法律声明与使用限制](./LEGAL_NOTICE.md)
+
+## 🚢 GitHub 发布检查清单
 
 上传 GitHub 公开仓库前建议检查：
 
-1. 确认安装命令中的克隆地址已经使用最终 GitHub 仓库账号或组织名。
-2. 保留 `LICENSE`、`LEGAL_NOTICE.md`、`CREDITS.txt` 和 [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md)。
-3. 确认“仅限个人学习、严禁商业使用”的限制清晰可见且未被删除。
-4. 运行 `npm run validate`。
-5. 在至少一个 Hexo 站点中执行 `hexo clean && hexo generate`。
-6. 保持 [README.md](./README.md) 与 [README.zh-CN.md](./README.zh-CN.md) 内容同步。
+- [ ] 运行 `npm run validate`。
+- [ ] 在至少一个 Hexo 站点中执行 `hexo clean && hexo generate`。
+- [ ] 保持 `README.md` 与 `README.zh-CN.md` 内容同步。
+- [ ] 保留 `LICENSE`、`LEGAL_NOTICE.md`、`CREDITS.txt` 和 `docs/ASSETS_AND_CREDITS.md`。
+- [ ] 确认“仅限个人学习、严禁商业使用”的限制清晰可见且未被删除。
 
-## 许可证与使用限制
+## 📜 许可证
 
-本项目源码公开但仅限个人学习与非商业使用，严禁商业使用。详见 [LICENSE](./LICENSE) 与 [LEGAL_NOTICE.md](./LEGAL_NOTICE.md)。第三方 UI 元素、参考项目与素材鸣谢见 [CREDITS.txt](./CREDITS.txt) 和 [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md)；复制、修改或公开分享本主题时，请保留这些声明。
+本项目源码公开但仅限个人学习与非商业使用，严禁商业使用。详见 [LICENSE](./LICENSE) 与 [LEGAL_NOTICE.md](./LEGAL_NOTICE.md)。
+
+第三方 UI 元素、参考项目与素材鸣谢见 [CREDITS.txt](./CREDITS.txt) 和 [docs/ASSETS_AND_CREDITS.md](./docs/ASSETS_AND_CREDITS.md)；复制、修改或公开分享本主题时，请保留这些声明。
