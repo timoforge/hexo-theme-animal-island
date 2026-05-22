@@ -20,8 +20,16 @@
     });
   }
 
+  function setDrawerOpen(open) {
+    document.body.classList.toggle("is-drawer-open", open);
+    document.body.toggleAttribute("data-drawer-locked", open);
+    document.querySelectorAll("[data-drawer-toggle]").forEach((button) => {
+      button.setAttribute("aria-expanded", String(open));
+    });
+  }
+
   function closeDrawer() {
-    document.body.classList.remove("is-drawer-open");
+    setDrawerOpen(false);
   }
 
   function decodeHash(hash) {
@@ -359,7 +367,7 @@
 
   document.querySelectorAll("[data-drawer-toggle]").forEach((button) => {
     button.addEventListener("click", () => {
-      document.body.classList.toggle("is-drawer-open");
+      setDrawerOpen(!document.body.classList.contains("is-drawer-open"));
     });
   });
 
@@ -369,5 +377,9 @@
 
   document.querySelectorAll(".ai-menu-item").forEach((link) => {
     link.addEventListener("click", closeDrawer);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeDrawer();
   });
 })();

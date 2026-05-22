@@ -11,11 +11,11 @@ const normalizedCurrentPath = normalizePath(currentPath);
 
 <header class="ai-mobile-header">
 
-  <button class="ai-drawer-toggle" type="button" aria-label="<%- labels.drawer_open || '打开菜单' %>" data-drawer-toggle>
+  <button class="ai-drawer-toggle" type="button" aria-label="<%- labels.drawer_open || '打开菜单' %>" aria-expanded="false" data-drawer-toggle>
     <span></span><span></span><span></span>
   </button>
   <a class="ai-mobile-title" href="<%- url_for('/') %>"><%- config.title %></a>
-  <a class="ai-mobile-search-link" href="<%- url_for('/search/') %>" aria-label="<%- labels.search_aria || '站内搜索' %>">⌕</a>
+  <a class="ai-mobile-search-link" href="<%- url_for('/search/') %>" aria-label="<%- labels.search_aria || '站内搜索' %>"></a>
   <div class="ai-theme-segment ai-theme-segment--mobile" role="group" aria-label="<%- labels.theme_aria || '底色主题切换' %>">
     <button class="ai-theme-choice" type="button" data-theme-choice="day" aria-pressed="true">
       <span class="ai-theme-dot ai-theme-dot--day"></span>
@@ -51,7 +51,7 @@ const normalizedCurrentPath = normalizePath(currentPath);
   </nav>
 
   <div class="ai-sidebar-bottom">
-    <div class="ai-theme-panel">
+    <div class="ai-theme-panel ai-theme-panel--desktop">
       <p class="ai-theme-title"><%- labels.theme_title || '底色主题' %></p>
       <div class="ai-theme-segment" role="group" aria-label="<%- labels.theme_aria || '底色主题切换' %>">
         <button class="ai-theme-choice" type="button" data-theme-choice="day" aria-pressed="true">

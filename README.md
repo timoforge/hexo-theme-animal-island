@@ -31,7 +31,7 @@ This project is **not** an official Nintendo product, is **not** endorsed by Nin
 ## 🌿 Features
 
 - 🏡 Native Hexo theme structure: `layout/`, `source/`, and `_config.yml`.
-- 📱 Responsive sidebar, mobile drawer menu, profile card, navigation icons, and decorative right rail.
+- 📱 Responsive layout with a safe-area mobile header, drawer menu, profile card, navigation icons, and decorative right rail.
 - 🌗 Built-in `day` / `night` theme switch stored in `localStorage`.
 - 🔎 Client-side site search for post titles, content, categories, and tags.
 - 🧭 Category and tag overview pages rendered from Hexo collections.
