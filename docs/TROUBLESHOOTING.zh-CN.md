@@ -29,6 +29,16 @@ public/js/animal-island.js
 
 如果没有，检查主题是否位于正确的 `themes/animal-island` 目录。
 
+## 部署后 CSS 改动没有生效
+
+主题会给 `animal-island.css` 和 `animal-island.js` 追加 `?v=...`，让使用长期 immutable 缓存的托管平台能拉取新资源。如果生产环境仍显示旧样式，先抓取线上 HTML，确认它引用了新的版本化资源地址。
+
+```html
+<link rel="stylesheet" href="/css/animal-island.css?v=...">
+```
+
+如果希望资源版本可预测，可以在站点级 `_config.animal-island.yml` 中手动设置 `asset_version` 后再构建。
+
 ## 图片 404
 
 主题配置中的图片路径应该是 public 路径，例如：

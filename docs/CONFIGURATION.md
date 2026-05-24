@@ -18,6 +18,16 @@ _config.animal-island.yml
 
 This keeps personal settings outside the theme package, so upgrades do not overwrite them.
 
+## 🔁 asset_version
+
+Optional cache-busting value appended to the theme CSS and JavaScript URLs.
+
+```yaml
+asset_version: "2026-05-24"
+```
+
+Leave it empty to let the theme generate a build-time value. Set it explicitly when your hosting platform applies long-lived immutable caching to `/css/*` or `/js/*` and you need a predictable asset URL change after deployment.
+
 ## 🧑 profile
 
 Sidebar avatar, name, intro, and status text.

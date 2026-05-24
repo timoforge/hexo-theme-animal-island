@@ -29,6 +29,16 @@ public/js/animal-island.js
 
 If they are missing, check whether the theme is placed under the correct `themes/animal-island` directory.
 
+## CSS changes do not appear after deployment
+
+The theme appends `?v=...` to `animal-island.css` and `animal-island.js` so hosts with long-lived immutable caching can fetch updated assets. If production still shows old styling, fetch the live HTML and confirm it references a new versioned asset URL.
+
+```html
+<link rel="stylesheet" href="/css/animal-island.css?v=...">
+```
+
+For predictable cache busting, set `asset_version` in the site-level `_config.animal-island.yml` before building.
+
 ## Image 404
 
 Image config values should be public paths.

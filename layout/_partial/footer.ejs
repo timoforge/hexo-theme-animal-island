@@ -1,4 +1,4 @@
-<% const footer = theme.footer || {}; %>
+<% const footer = theme.footer || {}; const assetVersion = theme.asset_version || config.asset_version || (globalThis.__animalIslandAssetVersion = globalThis.__animalIslandAssetVersion || Date.now()); %>
 <footer class="ai-footer">
   <div class="ai-footer-sea" aria-hidden="true"></div>
   <p>&copy; <%= new Date().getFullYear() %> <%- config.author || config.title %>. <%- footer.text || 'Made with Hexo on Animal Island.' %></p>
@@ -14,4 +14,4 @@
     </div>
   <% } %>
 </footer>
-<%- js('js/animal-island') %>
+<script src="<%- url_for('js/animal-island.js') %>?v=<%- assetVersion %>"></script>

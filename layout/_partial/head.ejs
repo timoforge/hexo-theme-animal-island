@@ -1,4 +1,4 @@
-<% const assets = theme.assets || {}; const hero = theme.hero || {}; const profile = theme.profile || {}; const siteTitle = config.title && config.title !== 'Hexo' ? config.title : `${profile.name || 'Islander'}的小岛`; %>
+<% const assets = theme.assets || {}; const hero = theme.hero || {}; const profile = theme.profile || {}; const siteTitle = config.title && config.title !== 'Hexo' ? config.title : `${profile.name || 'Islander'}的小岛`; const assetVersion = theme.asset_version || config.asset_version || (globalThis.__animalIslandAssetVersion = globalThis.__animalIslandAssetVersion || Date.now()); %>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -15,6 +15,6 @@
       }
     })();
   </script>
-  <%- css('css/animal-island') %>
+  <link rel="stylesheet" href="<%- url_for('css/animal-island.css') %>?v=<%- assetVersion %>">
   <link rel="icon" href="<%- url_for(assets.favicon || '/images/island-assets/favicon.svg') %>" type="image/svg+xml">
 </head>

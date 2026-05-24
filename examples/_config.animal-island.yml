@@ -1,6 +1,8 @@
 # Animal Island theme override example
 # Copy this file to your Hexo site root as _config.animal-island.yml.
 
+asset_version: ""
+
 profile:
   avatar: /images/island-assets/profile.jpg
   name: "Islander"

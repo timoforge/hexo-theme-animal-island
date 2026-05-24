@@ -8,6 +8,8 @@ profile:
   intro: "欢迎来到我的无人岛博客。"
   status: "今天也在岛上写作、记录和探索。"
 
+asset_version: ""
+
 assets:
   favicon: /images/island-assets/favicon.svg
   divider: /images/island-assets/divider_line.png
