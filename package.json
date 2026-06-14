@@ -27,7 +27,8 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "hexo": ">=6"
+    "hexo": ">=6",
+    "hexo-generator-feed": ">=3"
   },
   "engines": {
     "node": ">=16"

@@ -56,6 +56,25 @@ cp themes/animal-island/examples/_config.animal-island.yml _config.animal-island
 
 Hexo 会把主题默认 `_config.yml` 和站点根目录 `_config.animal-island.yml` 合并，后者优先级更高。升级主题时，尽量只保留站点根目录中的覆盖配置，不要直接改主题默认配置。
 
+## 📡 RSS 订阅支持
+
+主题在 `<head>` 中内置了 RSS autodiscovery 链接。要实际生成订阅源，需在 Hexo 站点中安装 [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)：
+
+```bash
+npm install hexo-generator-feed
+```
+
+然后在站点根目录 `_config.yml` 中添加 feed 配置：
+
+```yaml
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+```
+
+如果未安装 `hexo-generator-feed`，autodiscovery 链接会指向不存在的 `atom.xml`。请安装插件或移除 feed 配置。
+
 ## 🗺️ 推荐创建页面
 
 默认菜单包含搜索、分类、标签、归档和关于。归档由 Hexo 内置生成，其他页面建议手动创建：
