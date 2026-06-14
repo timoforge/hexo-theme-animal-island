@@ -17,4 +17,9 @@
   </script>
   <link rel="stylesheet" href="<%- url_for('css/animal-island.css') %>?v=<%- assetVersion %>">
   <link rel="icon" href="<%- url_for(assets.favicon || '/images/island-assets/favicon.svg') %>" type="image/svg+xml">
+  <% if (config.feed && config.feed.path) { %>
+  <link rel="alternate" type="<%= config.feed.type || 'application/atom+xml' %>" title="<%= config.title %>" href="<%- url_for(config.feed.path) %>">
+  <% } else { %>
+  <link rel="alternate" type="application/atom+xml" title="<%= config.title %>" href="<%- url_for('atom.xml') %>">
+  <% } %>
 </head>

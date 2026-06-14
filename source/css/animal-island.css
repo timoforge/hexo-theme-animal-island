@@ -1817,6 +1817,31 @@ html[data-theme="night"] .ai-toc__empty {
   line-height: 1.14;
 }
 
+.ai-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 0 0 8px;
+}
+
+.ai-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--ai-radius-sm);
+  object-fit: cover;
+  box-shadow: var(--ai-soft-shadow);
+}
+
+.ai-comments {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ai-border-soft);
+}
+
+.ai-comments #disqus_thread {
+  min-height: 60px;
+}
+
 .ai-divider {
   height: 32px;
   margin: 24px 0;
