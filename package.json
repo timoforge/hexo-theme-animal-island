@@ -11,7 +11,8 @@
   ],
   "license": "SEE LICENSE IN LICENSE",
   "scripts": {
-    "validate": "node tools/validate-theme.js"
+    "validate": "node tools/validate-theme.js",
+    "init-pages": "node tools/init-pages.js"
   },
   "files": [
     "_config.yml",
