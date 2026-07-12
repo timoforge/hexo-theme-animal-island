@@ -32,7 +32,7 @@ const sideIcons = Array.isArray(sideBoard.icons) && sideBoard.icons.length
 <%- partial('_partial/head') %>
 <body>
   <div class="ai-page-shell">
-    <%- fragment_cache('header', function(){ return partial('_partial/header'); }) %>
+    <%- partial('_partial/header') %>
     <main class="ai-main">
       <div class="ai-top-banner" aria-hidden="true">
         <img class="ai-banner-img ai-banner-img--day" src="<%- url_for(assets.header_banner_day || '/images/island-assets/header_banner_light.png') %>" alt="">
