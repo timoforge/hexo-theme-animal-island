@@ -72,7 +72,17 @@ hexo clean && hexo generate
 
 ## 🗺️ 推荐页面
 
-默认菜单指向搜索、分类、标签、归档和关于页面。归档由 Hexo 内置生成，其他页面建议在 Hexo 站点中创建：
+默认菜单指向搜索、分类、标签、归档和关于页面。归档由 Hexo 内置生成，其他页面建议在 Hexo 站点中创建。
+
+**一键创建所有页面**（推荐）：
+
+```bash
+node themes/animal-island/tools/init-pages.js
+```
+
+该命令会自动生成 `source/search/index.md`、`source/categories/index.md`、`source/tags/index.md` 和 `source/about/index.md`，并写入正确的 front matter。
+
+也可以手动创建：
 
 ```bash
 hexo new page search
@@ -81,7 +91,7 @@ hexo new page tags
 hexo new page about
 ```
 
-为页面设置 front matter：
+然后为页面设置 front matter：
 
 ```yaml
 # source/search/index.md
@@ -148,7 +158,7 @@ links:
     url: ""
 ```
 
-完整示例见 [examples/_config.animal-island.yml](./examples/_config.animal-island.yml)，详细字段说明见 [docs/CONFIGURATION.zh-CN.md](./docs/CONFIGURATION.zh-CN.md)。
+完整示例见 [examples/\_config.animal-island.yml](./examples/_config.animal-island.yml)，详细字段说明见 [docs/CONFIGURATION.zh-CN.md](./docs/CONFIGURATION.zh-CN.md)。
 
 ## 📚 文章目录
 

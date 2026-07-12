@@ -72,7 +72,17 @@ hexo clean && hexo generate
 
 ## 🗺️ Recommended Pages
 
-The default menu points to search, categories, tags, archives, and about pages. Archives are built in by Hexo, but the other pages should be created in your Hexo site:
+The default menu points to search, categories, tags, archives, and about pages. Archives are built in by Hexo, but the other pages should be created in your Hexo site.
+
+You can create all required pages at once with the built-in script:
+
+```bash
+node themes/animal-island/tools/init-pages.js
+```
+
+This creates `source/search/index.md`, `source/categories/index.md`, `source/tags/index.md` and `source/about/index.md` with the correct front matter.
+
+Alternatively, create them manually:
 
 ```bash
 hexo new page search
@@ -81,7 +91,7 @@ hexo new page tags
 hexo new page about
 ```
 
-Set the page front matter:
+Then set the page front matter:
 
 ```yaml
 # source/search/index.md
@@ -148,7 +158,7 @@ links:
     url: ""
 ```
 
-See the complete example in [examples/_config.animal-island.yml](./examples/_config.animal-island.yml) and the full guide in [docs/CONFIGURATION.md](./docs/CONFIGURATION.md).
+See the complete example in [examples/\_config.animal-island.yml](./examples/_config.animal-island.yml) and the full guide in [docs/CONFIGURATION.md](./docs/CONFIGURATION.md).
 
 ## 📚 Post TOC
 
